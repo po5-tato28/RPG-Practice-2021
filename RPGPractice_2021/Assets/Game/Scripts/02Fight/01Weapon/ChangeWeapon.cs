@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class ChangeWeapon : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Weapon weapon;
+    [SerializeField] PlayerCombat combat;
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeButton()
     {
-        
+        combat.EquipWeapon(weapon);
     }
 }

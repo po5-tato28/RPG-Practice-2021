@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillType : MonoBehaviour
+public enum SkillType
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    ATTACK_ONE,
+    ATTACK_MULTI,
+    ATTACK_ALL,
+    BUFF_HEAL,
+    NONE,
 }
+

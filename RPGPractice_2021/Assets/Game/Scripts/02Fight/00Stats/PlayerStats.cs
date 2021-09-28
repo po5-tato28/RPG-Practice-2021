@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+[CreateAssetMenu(menuName = "Stats/Player")]
+public class PlayerStats : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public CommonStats commonStats = null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private int maxMP = 100;
+    public int currentMP = 100;
+
+    private float maxEXP = 100.0f;
+    public float currentEXP = 0.0f;
+
+    public int currentLevel = 1;
 }

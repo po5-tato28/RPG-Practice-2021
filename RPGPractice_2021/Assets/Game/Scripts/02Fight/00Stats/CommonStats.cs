@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CommonStats : MonoBehaviour
+[CreateAssetMenu(menuName = "Stats/Common")]
+public class CommonStats : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private int maxHP = 100;
+    public int currentHP = 100;
 
-    // Update is called once per frame
-    void Update()
+    public int GetMaxHP()
     {
-        
+        return maxHP;
     }
 }

@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float horizontal { get; private set; }
+    public float vertical { get; private set; }
+    public float attack { get; private set; }
+
+    private void Update()
     {
-        
+        MovementInput();
+        AttackInput();
     }
 
-    // Update is called once per frame
-    void Update()
+    void MovementInput()
     {
-        
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+    }
+    void AttackInput()
+    {
+        attack = Input.GetAxis("Basic Attack");
     }
 }

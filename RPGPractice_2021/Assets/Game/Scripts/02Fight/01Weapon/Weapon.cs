@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+[CreateAssetMenu(menuName = "Fight/Weapon")]
+public class Weapon : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject weaponPrefab = null;
+    public AnimatorOverrideController weaponOverride = null;
+    public float timeBetweenAttacks = 1f;
+    public float attackRange = 1f;
+    public float attackDamage = 1f;
 
-    // Update is called once per frame
-    void Update()
+    public WeaponType weaponType;
+    public GameObject effectPrefab = null;
+    public Vector3 effectPosition;
+    public Vector3 effectRotation;
+
+    public void Spawn(Transform handTransform, Animator animator)
     {
-        
+        if (weaponPrefab != null)
+        {
+            Instantiate(weaponPrefab, handTransform);
+        }
+
+        if (weaponOverride != null)
+        {
+            animator.runtimeAnimatorController = weaponOverride;
+        }
     }
 }
