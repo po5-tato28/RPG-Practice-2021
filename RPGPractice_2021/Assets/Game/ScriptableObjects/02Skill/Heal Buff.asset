@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844e3c02f617369439fbb90a0bc9418d, type: 3}
   m_Name: Heal Buff
   m_EditorClassIdentifier: 
-  skillOverride: {fileID: 0}
-  coolTime: 1
-  attackDamage: 1
+  skillOverride: {fileID: 22100000, guid: eaa59d0eb708c9c41ade687338f736d8, type: 2}
+  coolTime: 5
+  attackDamage: 10
   attackRadius: 1
   attackPivot: {x: 0, y: 0, z: 0}
-  skillType: 0
-  effectPrefab: {fileID: 0}
-  effectPosition: {x: 0, y: 0, z: 0}
-  effectRotation: {x: 0, y: 0, z: 0}
+  skillType: 3
+  effectPrefab: {fileID: 1231323318321898, guid: 799ae2446b50f854faf2bbaef1a09f94, type: 3}
+  effectPosition: {x: 0, y: 0.7, z: 0}
+  effectRotation: {x: -90, y: 0, z: 0}

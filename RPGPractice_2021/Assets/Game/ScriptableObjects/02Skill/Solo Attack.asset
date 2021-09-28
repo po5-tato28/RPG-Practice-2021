@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 844e3c02f617369439fbb90a0bc9418d, type: 3}
-  m_Name: Multi Attack
+  m_Name: Solo Attack
   m_EditorClassIdentifier: 
-  skillOverride: {fileID: 22100000, guid: 87db4329048745049b4da3a8bb473077, type: 2}
-  coolTime: 7
-  attackDamage: 10
+  skillOverride: {fileID: 22100000, guid: cb8e931eee70c2e4cb75b1903d0fdf31, type: 2}
+  coolTime: 3
+  attackDamage: 30
   attackRadius: 3
-  attackPivot: {x: 0, y: 0, z: 7}
-  skillType: 1
-  effectPrefab: {fileID: 1588542916015164, guid: 4ab0705ff11d8f8449c481459526424e, type: 3}
-  effectPosition: {x: 0, y: 0, z: 0}
-  effectRotation: {x: -90, y: 0, z: 45}
+  attackPivot: {x: 0, y: 0, z: 0}
+  skillType: 0
+  effectPrefab: {fileID: 1561464076879880, guid: 385dad37d80f1704bbcf8417a316a3f7, type: 3}
+  effectPosition: {x: 0, y: 0.52, z: 0}
+  effectRotation: {x: 0, y: 0, z: 0}

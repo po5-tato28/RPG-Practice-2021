@@ -23,4 +23,5 @@ MonoBehaviour:
   searchDuration: 4
   searchingTurnSpeed: 120
   dropExp: 10
-  dropItem: []
+  dropItem:
+  - {fileID: 8537993005589258054, guid: bfe5895cac850b94f9503b756a83e70b, type: 3}
