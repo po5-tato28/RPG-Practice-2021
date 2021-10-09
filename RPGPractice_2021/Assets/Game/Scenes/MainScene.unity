@@ -4484,10 +4484,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 890098623810402973, guid: 1834c2e6e8b27014ea0b731d5272478a, type: 3}
-      propertyPath: attackedEffect
-      value: 
-      objectReference: {fileID: 1248725148069024, guid: 25464a23a439eef4b84cdfac9b1e33e2, type: 3}
     - target: {fileID: 3559050376783650938, guid: 1834c2e6e8b27014ea0b731d5272478a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
