@@ -83,6 +83,8 @@ public class Health : MonoBehaviour
 
     void Attacked()
     {
+        Debug.Log("Attacked");
+
         GameObject attacked = Instantiate(attackedEffect, new Vector3(0, 0, 0.7f), Quaternion.identity);
         attacked.transform.SetParent(gameObject.transform, false);
 

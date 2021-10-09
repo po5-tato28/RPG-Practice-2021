@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 861407006910094198}
   m_Layer: 0
   m_Name: Eqquipped Sword
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
