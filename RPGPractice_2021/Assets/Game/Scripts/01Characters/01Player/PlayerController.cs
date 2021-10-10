@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [HideInInspector] public PlayerCombat combat;
-    [HideInInspector] public Health health;
-    [HideInInspector] public Movement movement;
-
-    [SerializeField] public PlayerStats playerStats;
+    private PlayerCombat combat;
+    private Health health;
+    private Movement movement;
 
     List<Health> enemys;
 

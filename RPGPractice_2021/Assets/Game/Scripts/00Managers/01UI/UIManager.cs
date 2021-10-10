@@ -6,12 +6,29 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Text hpText;
-    public Text mpText;
-    public Text expText;
+    [SerializeField] Text hpText;
+    [SerializeField] Text mpText;
+    [SerializeField] Text expText;
 
-    private void Start()
+    public void SetHpText(int currentHp, int maxHp)
     {
-        
+        string value = currentHp + "/" + maxHp;
+
+        hpText.GetComponent<Text>().text = value;
+    }
+
+    public void SetMpText(int currentMp, int maxMp)
+    {
+        string value = currentMp + "/" + maxMp;
+
+        mpText.GetComponent<Text>().text = value;
+    }
+
+    public void SetExpText(float currentExp, float maxExp)
+    {
+        float percent = (maxExp / currentExp) * 100;
+        string value = currentExp + "/" + maxExp + " (" + percent + "%)";
+
+        expText.GetComponent<Text>().text = value;
     }
 }

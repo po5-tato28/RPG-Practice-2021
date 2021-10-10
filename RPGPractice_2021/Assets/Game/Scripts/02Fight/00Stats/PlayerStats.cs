@@ -14,4 +14,14 @@ public class PlayerStats : ScriptableObject
     public float currentEXP = 0.0f;
 
     public int currentLevel = 1;
+
+    public int GetMaxMp()
+    {
+        return maxMP;
+    }
+
+    public float GetMaxExp()
+    {
+        return maxEXP;
+    }
 }

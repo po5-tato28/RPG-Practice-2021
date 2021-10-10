@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     }
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Center of Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     

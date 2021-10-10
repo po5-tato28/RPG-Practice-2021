@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] PlayerStats playerStats;
+    public PlayerStats _PlayerStats { get { return playerStats; } }
 
-    // Update is called once per frame
-    void Update()
+    int currentMp;
+    public int CurrentMp { get { return currentMp; } }
+
+    int maxMp;
+    public int MaxMp { get { return MaxMp; } }
+
+    float currentExp;
+    public float CurrentExp { get { return currentExp; } }
+
+    float maxExp;
+    public float MaxExp { get { return maxExp; } }
+
+
+    private void Awake()
     {
-        
+        currentMp = playerStats.currentMP;
+        maxMp = playerStats.GetMaxMp();
+
+        currentExp = playerStats.currentEXP;
+        maxExp = playerStats.GetMaxExp();
     }
 }

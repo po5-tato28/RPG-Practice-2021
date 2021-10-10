@@ -5,11 +5,17 @@ using UnityEngine.UI;
 
 public class HpBar : MonoBehaviour
 {
-    [SerializeField] Health healthComponent = null;
+    [SerializeField] UIManager uiManager;
+
+    [SerializeField] Health health = null;
     [SerializeField] Slider slider = null;
+
 
     void Update()
     {
-        slider.value = healthComponent.GetHealthPoint();
+        slider.value = health.GetHealthPoint();
+
+        if (!uiManager) return;
+        uiManager.SetHpText(health.CurrentHp, health.MaxHp);
     }
 }

@@ -7,13 +7,7 @@ public class MpBar : MonoBehaviour
 {
     [SerializeField] Slider slider = null;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
         
     }

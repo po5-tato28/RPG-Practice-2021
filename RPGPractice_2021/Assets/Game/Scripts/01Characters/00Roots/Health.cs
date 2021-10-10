@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    float currentHealthPoints;
     [SerializeField] CommonStats common;
+
+    int currentHp;
+    public int CurrentHp { get { return currentHp; } }
+
+    int maxHp;
+    public int MaxHp { get { return maxHp; } }
 
     [SerializeField] bool isDead = false;
 
@@ -15,18 +20,20 @@ public class Health : MonoBehaviour
     public GameObject attackedEffect = null;
     public GameObject deadEffect = null;
 
-    private void Start()
+    private void Awake()
     {
-        currentHealthPoints = common.currentHP;
+        currentHp = common.currentHP;
+        maxHp = common.GetMaxHP();
     }
+
 
     public bool IsDead()
     {
         return isDead;
     }
-    public float GetHealthPoint()
+    public int GetHealthPoint()
     {
-        return currentHealthPoints / common.GetMaxHP();
+        return currentHp / common.GetMaxHP();
     }
 
     public void TakeDamage(float damage)
@@ -35,14 +42,14 @@ public class Health : MonoBehaviour
         ShakeCamera.Instance.OnShakeCamera(0.1f, 0.5f);
 
         //healthPoints = Mathf.Max(healthPoints - damage, 0);
-        currentHealthPoints = Mathf.Max(currentHealthPoints - damage, 0);
+        currentHp = (int)Mathf.Max(currentHp - damage, 0);
 
         //if (healthPoints == 0)
-        if (currentHealthPoints == 0)
+        if (currentHp == 0)
         {
             Die();
         }
-        Debug.Log("hp :: " + currentHealthPoints);
+        Debug.Log("hp :: " + currentHp);
 
         MoveBack();
         Attacked();
@@ -50,9 +57,9 @@ public class Health : MonoBehaviour
 
     public void RecoverHealth(float damage)
     {
-        if (currentHealthPoints >= 100) return;
+        if (currentHp >= 100) return;
 
-        currentHealthPoints = Mathf.Max(currentHealthPoints + damage, 10);
+        currentHp = (int)Mathf.Max(currentHp + damage, 10);
     }
 
 
