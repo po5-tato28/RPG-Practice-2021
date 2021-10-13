@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: New Player Stats
   m_EditorClassIdentifier: 
   commonStats: {fileID: 11400000, guid: b4e8c198855a9324cbba1d8de25d1415, type: 2}
-  currentMP: 100
-  currentEXP: 0
+  maxMp: 100
+  currentMp: 100
+  maxExp: 100
+  currentExp: 0
   currentLevel: 1

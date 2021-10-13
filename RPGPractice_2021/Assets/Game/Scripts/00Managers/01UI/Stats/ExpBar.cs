@@ -18,7 +18,7 @@ public class ExpBar : MonoBehaviour
 
     private void Update()
     {
-        SetSliderValue();
+        //SetSliderValue();
     }
 
     public void SetSliderValue()

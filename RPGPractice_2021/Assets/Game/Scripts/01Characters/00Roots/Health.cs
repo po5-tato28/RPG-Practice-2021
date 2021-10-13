@@ -5,9 +5,10 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] CommonStats common;
-    [SerializeField] HpBar hpbar = null;
 
     [SerializeField] bool isDead = false;
+
+    int cH;
 
     float speed = 0.1f;
 
@@ -17,11 +18,12 @@ public class Health : MonoBehaviour
 
     private void OnEnable()
     {
-        common.CurrentHp = common.MaxHp;
+        //common.CurrentHp = common.MaxHp;
     }
 
     private void Start()
     {
+        cH = common.MaxHp;
     }
 
     public bool IsDead()
@@ -31,7 +33,7 @@ public class Health : MonoBehaviour
 
     public int GetHpValue()
     {
-        return (common.CurrentHp / common.MaxHp);
+        return (cH / common.MaxHp);
     }
 
     public void TakeDamage(float damage)
@@ -40,14 +42,16 @@ public class Health : MonoBehaviour
         ShakeCamera.Instance.OnShakeCamera(0.1f, 0.5f);
 
         //healthPoints = Mathf.Max(healthPoints - damage, 0);
-        common.CurrentHp = (int)Mathf.Max(common.CurrentHp - damage, 0);
+        // common.CurrentHp = (int)Mathf.Max(common.CurrentHp - damage, 0);
+        cH = (int)Mathf.Max(cH - damage, 0);
 
         //if (healthPoints == 0)
-        if (common.CurrentHp == 0)
+        if (cH == 0)
         {
             Die();
         }
-        Debug.Log("hp :: " + common.CurrentHp);
+        Debug.Log("hp :: " + cH);
+        //Debug.Log("maxhp :: " + common.MaxHp);
 
         MoveBack();
         Attacked();
@@ -55,9 +59,9 @@ public class Health : MonoBehaviour
 
     public void RecoverHealth(float damage)
     {
-        if (common.CurrentHp >= 100) return;
+        if (cH >= 100) return;
 
-        common.CurrentHp = (int)Mathf.Max(common.CurrentHp + damage, 10);
+        cH = (int)Mathf.Max(cH + damage, 10);
     }
 
 
@@ -90,7 +94,7 @@ public class Health : MonoBehaviour
     {
         Debug.Log("Attacked");
 
-        hpbar.SetSliderValue(common.CurrentHp, common.MaxHp);
+        //hpbar.SetSliderValue(cH, common.MaxHp);
 
         GameObject attacked = Instantiate(attackedEffect, new Vector3(0, 0, 0.7f), Quaternion.identity);
         attacked.transform.SetParent(gameObject.transform, false);

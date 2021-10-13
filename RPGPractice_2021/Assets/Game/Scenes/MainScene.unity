@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ca5eb9cd64144408b8f832261017da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiManager: {fileID: 2102015984}
+  uiManager: {fileID: 0}
   health: {fileID: 349900710}
   slider: {fileID: 118605505}
 --- !u!114 &118605505
@@ -673,6 +673,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2548605605813466450, guid: b2aa8032f0b71bb47bea422e6e7fc01c, type: 3}
+      propertyPath: hpbar
+      value: 
+      objectReference: {fileID: 118605504}
     - target: {fileID: 7298229582423496109, guid: b2aa8032f0b71bb47bea422e6e7fc01c, type: 3}
       propertyPath: cam
       value: 
@@ -983,6 +987,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 890098623810402973, guid: 1834c2e6e8b27014ea0b731d5272478a, type: 3}
+      propertyPath: hpbar
+      value: 
+      objectReference: {fileID: 1113064843}
     - target: {fileID: 3559050376783650938, guid: 1834c2e6e8b27014ea0b731d5272478a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1351,6 +1359,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514745575}
   m_CullTransparentMesh: 1
+--- !u!114 &527898928 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7329859278372414325, guid: 1834c2e6e8b27014ea0b731d5272478a, type: 3}
+  m_PrefabInstance: {fileID: 890098622439678152}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ca5eb9cd64144408b8f832261017da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &561540985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2557,6 +2576,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082954552}
   m_CullTransparentMesh: 1
+--- !u!114 &1113064843 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7329859278372414325, guid: 1834c2e6e8b27014ea0b731d5272478a, type: 3}
+  m_PrefabInstance: {fileID: 431607579}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ca5eb9cd64144408b8f832261017da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1231408930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,6 +2682,17 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &1271180413 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7329859278372414325, guid: 1834c2e6e8b27014ea0b731d5272478a, type: 3}
+  m_PrefabInstance: {fileID: 1565254316}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ca5eb9cd64144408b8f832261017da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1285006017
 GameObject:
   m_ObjectHideFlags: 0
@@ -3258,6 +3299,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 890098623810402973, guid: 1834c2e6e8b27014ea0b731d5272478a, type: 3}
+      propertyPath: hpbar
+      value: 
+      objectReference: {fileID: 1271180413}
     - target: {fileID: 3559050376783650938, guid: 1834c2e6e8b27014ea0b731d5272478a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4395,6 +4440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c37e153ec64264e8196d4e82fce675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: cdbbc1c8599424d428cc9114ee64ba5a, type: 2}
   hpText: {fileID: 2013248809}
   mpText: {fileID: 2355518}
   expText: {fileID: 1231408932}
@@ -4643,6 +4689,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 890098623810402973, guid: 1834c2e6e8b27014ea0b731d5272478a, type: 3}
+      propertyPath: hpbar
+      value: 
+      objectReference: {fileID: 527898928}
     - target: {fileID: 3559050376783650938, guid: 1834c2e6e8b27014ea0b731d5272478a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

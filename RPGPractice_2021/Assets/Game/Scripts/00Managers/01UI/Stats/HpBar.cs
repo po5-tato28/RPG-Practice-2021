@@ -17,7 +17,7 @@ public class HpBar : MonoBehaviour
 
     private void Update()
     {
-        //slider.value = health.GetHpValue();
+        slider.value = health.GetHpValue();
     }
 
     //public void SetSliderValue() 
