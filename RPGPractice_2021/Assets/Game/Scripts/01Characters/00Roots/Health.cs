@@ -31,9 +31,9 @@ public class Health : MonoBehaviour
         return isDead;
     }
 
-    public int GetHpValue()
+    public float GetHpValue()
     {
-        return (cH / common.MaxHp);
+        return ((float)cH / (float)common.MaxHp);
     }
 
     public void TakeDamage(float damage)

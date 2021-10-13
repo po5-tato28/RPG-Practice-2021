@@ -27,6 +27,6 @@ public class HpBar : MonoBehaviour
 
     public void SetSliderValue(int currentHp, int maxHp)
     {
-        slider.value = (currentHp/maxHp);
+        slider.value = ((float)currentHp/(float)maxHp);
     }
 }
