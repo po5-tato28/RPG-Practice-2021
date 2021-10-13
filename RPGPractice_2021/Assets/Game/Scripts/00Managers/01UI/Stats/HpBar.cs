@@ -10,12 +10,23 @@ public class HpBar : MonoBehaviour
     [SerializeField] Health health = null;
     [SerializeField] Slider slider = null;
 
-
-    void Update()
+    private void Awake()
     {
-        slider.value = health.GetHealthPoint();
+        uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();
+    }
 
-        if (!uiManager) return;
-        uiManager.SetHpText(health.CurrentHp, health.MaxHp);
+    private void Update()
+    {
+        //slider.value = health.GetHpValue();
+    }
+
+    //public void SetSliderValue() 
+    //{
+    //  slider.value = health.GetHpValue();
+    //}
+
+    public void SetSliderValue(int currentHp, int maxHp)
+    {
+        slider.value = (currentHp/maxHp);
     }
 }

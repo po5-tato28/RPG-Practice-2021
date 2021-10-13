@@ -5,11 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Stats/Common")]
 public class CommonStats : ScriptableObject
 {
-    [SerializeField] private int maxHP = 100;
-    public int currentHP = 100;
+    [SerializeField] private int maxHp = 100;
+    public int MaxHp { get { return maxHp; } }
 
-    public int GetMaxHP()
-    {
-        return maxHP;
-    }
+    [SerializeField] private int currentHp = 100;
+    public int CurrentHp { get { return currentHp; } set { currentHp = value; } }
 }

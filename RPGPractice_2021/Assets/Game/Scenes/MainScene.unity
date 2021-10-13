@@ -762,6 +762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d09da6baa8bd14491d32325a2019ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  uiManager: {fileID: 0}
   slider: {fileID: 406624480}
 --- !u!114 &406624480
 MonoBehaviour:
@@ -3322,6 +3324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 018d0559cd8de8c4b80b79c2c286edc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  uiManager: {fileID: 0}
   slider: {fileID: 1677643802}
 --- !u!114 &1677643802
 MonoBehaviour:
@@ -4360,7 +4364,7 @@ GameObject:
   - component: {fileID: 2102015985}
   m_Layer: 0
   m_Name: Managers
-  m_TagString: Untagged
+  m_TagString: Managers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

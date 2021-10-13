@@ -5,12 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] CommonStats common;
-
-    int currentHp;
-    public int CurrentHp { get { return currentHp; } }
-
-    int maxHp;
-    public int MaxHp { get { return maxHp; } }
+    [SerializeField] HpBar hpbar = null;
 
     [SerializeField] bool isDead = false;
 
@@ -20,20 +15,23 @@ public class Health : MonoBehaviour
     public GameObject attackedEffect = null;
     public GameObject deadEffect = null;
 
-    private void Awake()
+    private void OnEnable()
     {
-        currentHp = common.currentHP;
-        maxHp = common.GetMaxHP();
+        common.CurrentHp = common.MaxHp;
     }
 
+    private void Start()
+    {
+    }
 
     public bool IsDead()
     {
         return isDead;
     }
-    public int GetHealthPoint()
+
+    public int GetHpValue()
     {
-        return currentHp / common.GetMaxHP();
+        return (common.CurrentHp / common.MaxHp);
     }
 
     public void TakeDamage(float damage)
@@ -42,14 +40,14 @@ public class Health : MonoBehaviour
         ShakeCamera.Instance.OnShakeCamera(0.1f, 0.5f);
 
         //healthPoints = Mathf.Max(healthPoints - damage, 0);
-        currentHp = (int)Mathf.Max(currentHp - damage, 0);
+        common.CurrentHp = (int)Mathf.Max(common.CurrentHp - damage, 0);
 
         //if (healthPoints == 0)
-        if (currentHp == 0)
+        if (common.CurrentHp == 0)
         {
             Die();
         }
-        Debug.Log("hp :: " + currentHp);
+        Debug.Log("hp :: " + common.CurrentHp);
 
         MoveBack();
         Attacked();
@@ -57,9 +55,9 @@ public class Health : MonoBehaviour
 
     public void RecoverHealth(float damage)
     {
-        if (currentHp >= 100) return;
+        if (common.CurrentHp >= 100) return;
 
-        currentHp = (int)Mathf.Max(currentHp + damage, 10);
+        common.CurrentHp = (int)Mathf.Max(common.CurrentHp + damage, 10);
     }
 
 
@@ -92,11 +90,11 @@ public class Health : MonoBehaviour
     {
         Debug.Log("Attacked");
 
+        hpbar.SetSliderValue(common.CurrentHp, common.MaxHp);
+
         GameObject attacked = Instantiate(attackedEffect, new Vector3(0, 0, 0.7f), Quaternion.identity);
         attacked.transform.SetParent(gameObject.transform, false);
 
         Destroy(attacked, 2f);
     }
-
-
 }
