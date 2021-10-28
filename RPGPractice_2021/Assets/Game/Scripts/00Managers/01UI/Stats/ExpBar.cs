@@ -5,24 +5,37 @@ using UnityEngine.UI;
 
 public class ExpBar : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager;    
-    [SerializeField] UIManager uiManager;
+    //[SerializeField] GameManager gameManager;    
+    //[SerializeField] UIManager uiManager;
+
+    [SerializeField] PlayerExp playerExp = null;
 
     [SerializeField] Slider slider = null;
+    [SerializeField] Text expText;
 
-    private void Awake()
+    private void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<GameManager>();
-        uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();
+        SetExpText(playerExp.CE, playerExp.stats.MaxExp);
     }
 
     private void Update()
     {
-        //SetSliderValue();
+        slider.value = playerExp.GetExpValue();
+
+        if (expText != null)
+        {
+            SetExpText(playerExp.CE, playerExp.stats.MaxExp);
+        }
     }
 
-    public void SetSliderValue()
+    public void SetExpText(float currentExp, float maxExp)
     {
-        slider.value = gameManager._PlayerStats.GetExpValue();
+        float percent;
+        if (currentExp == 0) percent = 0;
+        else percent = (maxExp / currentExp);
+
+        string value = currentExp + "/" + maxExp + " (" + percent + "%)";
+
+        expText.GetComponent<Text>().text = value;
     }
 }

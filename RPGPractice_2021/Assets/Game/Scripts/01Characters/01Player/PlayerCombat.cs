@@ -122,14 +122,14 @@ public class PlayerCombat : Combat
         {
             for (int i = 0; i < targets.Count; i++)
             {
-                targets[i].TakeDamage(currentSkill.attackDamage);
+                targets[i].TakeDamage((int)currentSkill.attackDamage);
             }
         }
         else if (isSkill == false)
         {
             for (int i = 0; i < targets.Count; i++)
             {
-                targets[i].TakeDamage(currentWeapon.attackDamage);
+                targets[i].TakeDamage((int)currentWeapon.attackDamage);
             }
         }
     }
@@ -141,7 +141,7 @@ public class PlayerCombat : Combat
         {
             for (int i = 0; i < targets.Count; i++)
             {
-                targets[i].RecoverHealth(currentSkill.attackDamage);
+                targets[i].RecoverHealth((int)currentSkill.attackDamage);
             }
         }
     }

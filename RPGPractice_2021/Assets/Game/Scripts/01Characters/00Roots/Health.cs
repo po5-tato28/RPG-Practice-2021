@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] CommonStats common;
+    public CommonStats common;
 
     [SerializeField] bool isDead = false;
 
     int cH;
+    public int CH { get { return cH; } }
 
     float speed = 0.1f;
 
@@ -18,11 +19,6 @@ public class Health : MonoBehaviour
 
     private void OnEnable()
     {
-        //common.CurrentHp = common.MaxHp;
-    }
-
-    private void Start()
-    {
         cH = common.MaxHp;
     }
 
@@ -31,19 +27,14 @@ public class Health : MonoBehaviour
         return isDead;
     }
 
-    public float GetHpValue()
-    {
-        return ((float)cH / (float)common.MaxHp);
-    }
-
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         // 플레이어의 공격이 적에게 적중했을 때 카메라 흔들기
         ShakeCamera.Instance.OnShakeCamera(0.1f, 0.5f);
 
         //healthPoints = Mathf.Max(healthPoints - damage, 0);
         // common.CurrentHp = (int)Mathf.Max(common.CurrentHp - damage, 0);
-        cH = (int)Mathf.Max(cH - damage, 0);
+        cH = Mathf.Max(cH - damage, 0);
 
         //if (healthPoints == 0)
         if (cH == 0)
@@ -57,11 +48,11 @@ public class Health : MonoBehaviour
         Attacked();
     }
 
-    public void RecoverHealth(float damage)
+    public void RecoverHealth(int damage)
     {
         if (cH >= 100) return;
 
-        cH = (int)Mathf.Max(cH + damage, 10);
+        cH = Mathf.Max(cH + damage, 10);
     }
 
 
@@ -79,6 +70,11 @@ public class Health : MonoBehaviour
         dead.transform.SetParent(gameObject.transform, false);
 
         Destroy(dead, 3f);
+    }
+
+    public float GetHpValue()
+    {
+        return ((float)cH / (float)common.MaxHp);
     }
 
 

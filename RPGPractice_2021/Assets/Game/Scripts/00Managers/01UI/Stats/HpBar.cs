@@ -5,28 +5,42 @@ using UnityEngine.UI;
 
 public class HpBar : MonoBehaviour
 {
-    [SerializeField] UIManager uiManager;
-
+    //[SerializeField] UIManager uiManager;
+        
     [SerializeField] Health health = null;
-    [SerializeField] Slider slider = null;
 
-    private void Awake()
+    [SerializeField] Slider slider = null;
+    [SerializeField] Text hpText;
+
+
+    private void OnEnable()
     {
-        uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();
+        
+    }
+
+    private void Start()
+    {
+        if (hpText != null)
+        {
+            SetHpText(health.CH, health.common.MaxHp);
+        }
+        //uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();
     }
 
     private void Update()
     {
         slider.value = health.GetHpValue();
+        if (hpText != null)
+        {
+            SetHpText(health.CH, health.common.MaxHp);
+        }
     }
 
-    //public void SetSliderValue() 
-    //{
-    //  slider.value = health.GetHpValue();
-    //}
-
-    public void SetSliderValue(int currentHp, int maxHp)
+    public void SetHpText(int currentHp, int maxHp)
     {
-        slider.value = ((float)currentHp/(float)maxHp);
+        string value = currentHp + "/" + maxHp;
+
+        hpText.GetComponent<Text>().text = value;
     }
+
 }

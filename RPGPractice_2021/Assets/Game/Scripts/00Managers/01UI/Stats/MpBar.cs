@@ -5,25 +5,38 @@ using UnityEngine.UI;
 
 public class MpBar : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager;
-    [SerializeField] UIManager uiManager;
+    //[SerializeField] GameManager gameManager;
+    //[SerializeField] UIManager uiManager;
+
+    [SerializeField] PlayerMp playerMp = null;
 
     [SerializeField] Slider slider = null;
+    [SerializeField] Text mpText;
 
-    private void Awake()
+    private void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<GameManager>();
-        uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();
+        if (mpText != null)
+        {
+            SetMpText(playerMp.CM, playerMp.stats.MaxMp);
+        }
+        //gameManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<GameManager>();
+        //uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();
     }
 
     private void Update()
     {
-        //SetSliderValue();
+        slider.value = playerMp.GetMpValue();
+
+        if (mpText != null)
+        {
+            SetMpText(playerMp.CM, playerMp.stats.MaxMp);
+        }
     }
 
-    public void SetSliderValue()
+    public void SetMpText(int currentMp, int maxMp)
     {
-        slider.value = gameManager._PlayerStats.GetMpValue();
-    }
+        string value = currentMp + "/" + maxMp;
 
+        mpText.GetComponent<Text>().text = value;
+    }
 }

@@ -544,6 +544,8 @@ GameObject:
   - component: {fileID: 2432622490038644663}
   - component: {fileID: 1283167853858644614}
   - component: {fileID: 2548605605813466450}
+  - component: {fileID: 5628187690023109752}
+  - component: {fileID: 8627782048995596367}
   - component: {fileID: 7298229582423496109}
   - component: {fileID: 115575214670765893}
   - component: {fileID: 8322864201861628790}
@@ -648,6 +650,32 @@ MonoBehaviour:
   isDead: 0
   attackedEffect: {fileID: 1713201388092932, guid: 66de1b46a882df8419da5e3fc87bf35d, type: 3}
   deadEffect: {fileID: 1057183410796960, guid: d7705af78d2a7dd4291b742b45bdade8, type: 3}
+--- !u!114 &5628187690023109752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347843475052522153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350c60c1bf0705246901f0e653fa3c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: cdbbc1c8599424d428cc9114ee64ba5a, type: 2}
+--- !u!114 &8627782048995596367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347843475052522153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07251f9f28a1c14f80cbf3fc7e92d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: cdbbc1c8599424d428cc9114ee64ba5a, type: 2}
 --- !u!114 &7298229582423496109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,10 +724,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e071a23eeba74a4cb00e6b2eea0f87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combat: {fileID: 0}
-  health: {fileID: 0}
-  movement: {fileID: 0}
-  playerStats: {fileID: 11400000, guid: cdbbc1c8599424d428cc9114ee64ba5a, type: 2}
 --- !u!1 &2347844305440079603
 GameObject:
   m_ObjectHideFlags: 0
