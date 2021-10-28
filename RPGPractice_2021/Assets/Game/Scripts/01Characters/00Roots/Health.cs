@@ -41,6 +41,8 @@ public class Health : MonoBehaviour
         Debug.Log("hp :: " + cH);
         //Debug.Log("maxhp :: " + common.MaxHp);
 
+        GetComponent<Animator>().SetTrigger("Hit");
+
         //MoveBack();
         //Attacked();
     }

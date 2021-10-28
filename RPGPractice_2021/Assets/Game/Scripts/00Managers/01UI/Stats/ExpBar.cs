@@ -33,7 +33,7 @@ public class ExpBar : MonoBehaviour
     {
         float percent;
         if (currentExp == 0) percent = 0;
-        else percent = (maxExp / currentExp);
+        else percent = (currentExp / maxExp) * 100;
 
         string value = currentExp + "/" + maxExp + " (" + percent + "%)";
 
