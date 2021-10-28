@@ -123,6 +123,7 @@ public class PlayerCombat : Combat
             for (int i = 0; i < targets.Count; i++)
             {
                 targets[i].TakeDamage((int)currentSkill.attackDamage);
+                targets[i].GetComponent<Animator>().SetTrigger("Hit");
             }
         }
         else if (isSkill == false)
@@ -130,6 +131,7 @@ public class PlayerCombat : Combat
             for (int i = 0; i < targets.Count; i++)
             {
                 targets[i].TakeDamage((int)currentWeapon.attackDamage);
+                targets[i].GetComponent<Animator>().SetTrigger("Hit");
             }
         }
     }

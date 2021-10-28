@@ -175,15 +175,5 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //private void MultiTragets(Collider[] hitColliders)
-    //{
-
-    //}
-    //private void SoloTarget(Collider[] hitColliders)
-    //{
-
-    //}
-
-
 
 }

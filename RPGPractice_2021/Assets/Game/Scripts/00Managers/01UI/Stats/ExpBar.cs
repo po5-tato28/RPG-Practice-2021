@@ -21,6 +21,7 @@ public class ExpBar : MonoBehaviour
     private void Update()
     {
         slider.value = playerExp.GetExpValue();
+        //Debug.Log(playerExp.CE);
 
         if (expText != null)
         {

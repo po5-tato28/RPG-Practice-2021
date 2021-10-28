@@ -5,22 +5,19 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public CommonStats common;
-
     [SerializeField] bool isDead = false;
 
     int cH;
     public int CH { get { return cH; } }
 
-    float speed = 0.1f;
 
-    // test용
-    public GameObject attackedEffect = null;
-    public GameObject deadEffect = null;
+    Animator animator;
 
     private void OnEnable()
     {
         cH = common.MaxHp;
     }
+
 
     public bool IsDead()
     {
@@ -44,8 +41,8 @@ public class Health : MonoBehaviour
         Debug.Log("hp :: " + cH);
         //Debug.Log("maxhp :: " + common.MaxHp);
 
-        MoveBack();
-        Attacked();
+        //MoveBack();
+        //Attacked();
     }
 
     public void RecoverHealth(int damage)
@@ -62,14 +59,11 @@ public class Health : MonoBehaviour
 
         Debug.Log("Die");
         isDead = true;
+
+        GetComponent<Animator>().SetTrigger("Dead");
         //this.gameObject.SetActive(false);
         //GetComponent<Animator>().SetTrigger("die");
         //GetComponent<ActionScheduler>().CancelCurrentAction();
-
-        GameObject dead = Instantiate(deadEffect, new Vector3(0, 0.7f, 0), Quaternion.identity);
-        dead.transform.SetParent(gameObject.transform, false);
-
-        Destroy(dead, 3f);
     }
 
     public float GetHpValue()
@@ -78,23 +72,5 @@ public class Health : MonoBehaviour
     }
 
 
-    /// test method들
-    /// 이후에 꼭 옮겨줄 것!!
-    void MoveBack()
-    {
-        Vector3 move = new Vector3(0, 0, -10);
-        this.gameObject.transform.Translate(move * speed);
-    }
-
-    void Attacked()
-    {
-        Debug.Log("Attacked");
-
-        //hpbar.SetSliderValue(cH, common.MaxHp);
-
-        GameObject attacked = Instantiate(attackedEffect, new Vector3(0, 0, 0.7f), Quaternion.identity);
-        attacked.transform.SetParent(gameObject.transform, false);
-
-        Destroy(attacked, 2f);
-    }
+    
 }

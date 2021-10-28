@@ -19,6 +19,8 @@ public class EnemyStats : ScriptableObject
     public float searchDuration = 4f;
     public float searchingTurnSpeed = 120f;
 
-    public float dropExp = 10.0f;
+    [SerializeField] int dropExp = 10;
+    public int DropExp { get { return dropExp; } }
+
     public GameObject[] dropItem = null;
 }

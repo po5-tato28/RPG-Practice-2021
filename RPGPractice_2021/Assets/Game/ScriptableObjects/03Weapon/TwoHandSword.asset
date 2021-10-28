@@ -15,8 +15,8 @@ MonoBehaviour:
   weaponPrefab: {fileID: 838090648033694048, guid: b0dd5741ab45b2b4e9b895e65ef23abf, type: 3}
   weaponOverride: {fileID: 22100000, guid: 64fb3ff655fbcb948a4ddd4f718fffda, type: 2}
   timeBetweenAttacks: 2
-  attackRange: 5
-  attackDamage: 10
+  attackRange: 2
+  attackDamage: 30
   weaponType: 1
   effectPrefab: {fileID: 1405200697233058, guid: 0a480ee8f7aaa3c4397034f9b5bded35, type: 3}
   effectPosition: {x: 0, y: 1, z: 0}

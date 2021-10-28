@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 890098623810402969}
   - component: {fileID: 5942987360590913389}
   - component: {fileID: 890098623810402973}
+  - component: {fileID: 3670360254388674889}
   m_Layer: 6
   m_Name: Enemy_Cube
   m_TagString: Enemy
@@ -130,20 +131,25 @@ MonoBehaviour:
   isDead: 0
   attackedEffect: {fileID: 1248725148069024, guid: 25464a23a439eef4b84cdfac9b1e33e2, type: 3}
   deadEffect: {fileID: 1057183410796960, guid: d7705af78d2a7dd4291b742b45bdade8, type: 3}
---- !u!114 &7329859278372414325
-MonoBehaviour:
+--- !u!95 &3670360254388674889
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4424477806325862724}
+  m_GameObject: {fileID: 890098623810402968}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02ca5eb9cd64144408b8f832261017da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthComponent: {fileID: 890098623810402973}
-  slider: {fileID: 2321766132461007734}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 788040dddd2b64c4f9092d833777fd4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4183855033500702154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -290,3 +296,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7329859278372414325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4424477806325862724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ca5eb9cd64144408b8f832261017da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  slider: {fileID: 2321766132461007734}
+  hpText: {fileID: 0}

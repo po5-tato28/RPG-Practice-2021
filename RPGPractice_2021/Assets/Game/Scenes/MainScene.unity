@@ -2822,6 +2822,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74142848b2a8ed3468d9dbfcd4e50ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStats: {fileID: 11400000, guid: e26d9a20659bad34880bf165a43cabc9, type: 2}
+  attackedEffect: {fileID: 1248725148069024, guid: 25464a23a439eef4b84cdfac9b1e33e2, type: 3}
+  deadEffect: {fileID: 1018898938589420, guid: 6e900767b89ea624da6c9b4e21a73ce2, type: 3}
 --- !u!1 &1333987837
 GameObject:
   m_ObjectHideFlags: 0
@@ -3120,6 +3123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74142848b2a8ed3468d9dbfcd4e50ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStats: {fileID: 11400000, guid: e26d9a20659bad34880bf165a43cabc9, type: 2}
+  attackedEffect: {fileID: 1248725148069024, guid: 25464a23a439eef4b84cdfac9b1e33e2, type: 3}
+  deadEffect: {fileID: 1018898938589420, guid: 6e900767b89ea624da6c9b4e21a73ce2, type: 3}
 --- !u!1 &1473073898
 GameObject:
   m_ObjectHideFlags: 0
@@ -4418,6 +4424,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74142848b2a8ed3468d9dbfcd4e50ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStats: {fileID: 11400000, guid: e26d9a20659bad34880bf165a43cabc9, type: 2}
+  attackedEffect: {fileID: 1248725148069024, guid: 25464a23a439eef4b84cdfac9b1e33e2, type: 3}
+  deadEffect: {fileID: 1018898938589420, guid: 6e900767b89ea624da6c9b4e21a73ce2, type: 3}
 --- !u!1 &2102015982
 GameObject:
   m_ObjectHideFlags: 0
