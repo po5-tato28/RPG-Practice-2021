@@ -58,7 +58,7 @@ public class EnemyController : MonoBehaviour
         this.gameObject.transform.Translate(move * speed);
 
         // attacked effect
-        GameObject attacked = Instantiate(attackedEffect, new Vector3(0, 0, 0.7f), Quaternion.identity);
+        GameObject attacked = Instantiate(attackedEffect, new Vector3(0, 0.5f, 0.7f), Quaternion.identity);
         attacked.transform.SetParent(gameObject.transform, false);
 
         Destroy(attacked, 2f);
@@ -76,6 +76,11 @@ public class EnemyController : MonoBehaviour
         Destroy(dead, 3f);
 
         // 비활성화
-        //gameObject.SetActive(false);
+        Invoke("DisableEnemy", 3f);
+    }
+
+    void DisableEnemy()
+    {
+        gameObject.SetActive(false);
     }
 }

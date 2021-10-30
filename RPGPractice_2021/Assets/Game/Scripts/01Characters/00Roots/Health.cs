@@ -16,6 +16,7 @@ public class Health : MonoBehaviour
     private void OnEnable()
     {
         cH = common.MaxHp;
+        isDead = false;
     }
 
 
