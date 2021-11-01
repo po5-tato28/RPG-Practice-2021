@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     public void FindTarget()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(combat.center.position, combat.currentWeapon.attackRange, layerMarsks);
+        Collider[] hitColliders = Physics.OverlapSphere(combat.center.position, combat.currentWeapon.AttackRange, layerMarsks);
 
 
         //if (hitColliders.Length != 0)
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         //}
 
 
-        switch (combat.currentWeapon.weaponType)
+        switch (combat.currentWeapon.WeaponType)
         {
             case WeaponType.Unarmed:
             case WeaponType.Bow:

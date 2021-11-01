@@ -7,20 +7,23 @@ public class EnemyStats : ScriptableObject
 {
     public CommonStats commonStats = null;
 
-    public float moveSpeed = 1f;
-    public float lookRange = 40f;
-    public float lookSphereCastRadius = 1f;
+    [SerializeField] float moveSpeed = 1f;
+    [SerializeField] float lookRange = 40f;
+    [SerializeField] float lookSphereCastRadius = 1f;
 
-    public float attackRange = 1f;
-    public float attackRate = 1f;
-    public float attackForce = 1f;
-    public int attackDamage = 50;
+    [SerializeField] float attackRange = 1f;
+    public float AttackRange { get { return attackRange; } }
 
-    public float searchDuration = 4f;
-    public float searchingTurnSpeed = 120f;
+    [SerializeField] float attackRate = 1f;
+    [SerializeField] float attackForce = 1f;
+    [SerializeField] int attackDamage = 50;
+    public float AttackDamage { get { return attackDamage; } }
+
+    [SerializeField] float searchDuration = 4f;
+    [SerializeField] float searchingTurnSpeed = 120f;
 
     [SerializeField] int dropExp = 10;
     public int DropExp { get { return dropExp; } }
 
-    public GameObject[] dropItem = null;
+    [SerializeField] GameObject[] dropItem = null;
 }

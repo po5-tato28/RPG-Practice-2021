@@ -33,7 +33,7 @@ public class PlayerCombat : Combat
     public Skill currentSkill = null;
     //float currentDamage = 0;
 
-    GameObject combatEffect;
+    //GameObject combatEffect;
 
     bool isSkill = false;
 
@@ -102,12 +102,12 @@ public class PlayerCombat : Combat
     public override void WeaponEffect()
     {
         if (targets == null) return;
-        if (currentWeapon.effectPrefab == null) return;
+        if (currentWeapon.EffectPrefab == null) return;
 
         // 이펙트를 넣어볼까        
         Transform parent = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Transform>();
 
-        combatEffect = Instantiate(currentWeapon.effectPrefab, currentWeapon.effectPosition, Quaternion.Euler(currentWeapon.effectRotation));
+        combatEffect = Instantiate(currentWeapon.EffectPrefab, currentWeapon.EffectPosition, Quaternion.Euler(currentWeapon.EffectRotation));
         combatEffect.transform.SetParent(parent, false);
     }
     public override void DestroyWeaponEffect()
@@ -129,7 +129,7 @@ public class PlayerCombat : Combat
         {
             for (int i = 0; i < targets.Count; i++)
             {
-                targets[i].TakeDamage((int)currentWeapon.attackDamage);
+                targets[i].TakeDamage((int)currentWeapon.AttackDamage);
             }
         }
     }
@@ -159,9 +159,9 @@ public class PlayerCombat : Combat
         }
     }
 
-    public bool GetIsInRange(Transform targetTransform)
+    public override bool GetIsInRange(Transform targetTransform)
     {
-        return Vector3.Distance(center.position, targetTransform.position) > currentWeapon.attackRange;
+        return Vector3.Distance(transform.position, targetTransform.position) > currentWeapon.AttackRange;
     }
 
     public void EquipWeapon(Weapon weapon)

@@ -5,16 +5,27 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Fight/Weapon")]
 public class Weapon : ScriptableObject
 {
-    public GameObject weaponPrefab = null;
-    public AnimatorOverrideController weaponOverride = null;
-    public float timeBetweenAttacks = 1f;
-    public float attackRange = 1f;
-    public float attackDamage = 1f;
+    [SerializeField] GameObject weaponPrefab = null;
+    [SerializeField] AnimatorOverrideController weaponOverride = null;
+    [SerializeField] float timeBetweenAttacks = 1f;
+    [SerializeField] float attackRange = 1f;
 
-    public WeaponType weaponType;
-    public GameObject effectPrefab = null;
-    public Vector3 effectPosition;
-    public Vector3 effectRotation;
+    public float AttackRange { get { return attackRange; } }
+
+    [SerializeField] int attackDamage = 1;
+    public int AttackDamage { get { return attackDamage; } }
+
+
+    [SerializeField] WeaponType weaponType;
+    public WeaponType WeaponType { get { return weaponType; } }
+
+    [SerializeField] GameObject effectPrefab = null;
+    public GameObject EffectPrefab { get { return effectPrefab; } }
+
+    [SerializeField] Vector3 effectPosition;
+    public Vector3 EffectPosition { get { return effectPosition; } }
+    [SerializeField] Vector3 effectRotation;
+    public Vector3 EffectRotation { get { return effectRotation; } }
 
     public void Spawn(Transform handTransform, Animator animator)
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Combat : MonoBehaviour
 {
 
-	[SerializeField] protected float timeBetweenAttacks = 1f;
+	/*[SerializeField] */protected float timeBetweenAttacks = 1f;
 
 	protected Rigidbody rigidBody;
 	protected Animator animator;
@@ -15,6 +15,8 @@ public abstract class Combat : MonoBehaviour
 	public abstract void Hit();
 	public abstract void WeaponEffect();
 	public abstract void DestroyWeaponEffect();
+
+	protected GameObject combatEffect;
 
 	protected virtual void Awake()
 	{
@@ -34,6 +36,8 @@ public abstract class Combat : MonoBehaviour
 		animator.ResetTrigger("attack");
 		animator.SetTrigger("stopAttack");
 	}
+
+	public abstract bool GetIsInRange(Transform targetTransform);
 
 	//public void Cancel()
 	//{
