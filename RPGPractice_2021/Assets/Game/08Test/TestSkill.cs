@@ -7,8 +7,10 @@ public class TestSkill : MonoBehaviour
 {
     [SerializeField] GameObject player;
     PlayerCombat playerCombat;
+
     [SerializeField] List<Skill> skill;
     [SerializeField] List<Button> button;
+
 
     private void Awake()
     {
@@ -18,7 +20,7 @@ public class TestSkill : MonoBehaviour
 
     public void OnClickSkill(int index)
     {
-        StartCoroutine(CoolTime(skill[index].coolTime, index));
+        StartCoroutine(CoolTime(skill[index].CoolTime, index));
         playerCombat.TriggerSkill(skill[index]);
     }
 

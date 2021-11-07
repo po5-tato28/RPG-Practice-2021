@@ -5,11 +5,24 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Fight/Skill")]
 public class Skill : ScriptableObject
 {
-    public AnimatorOverrideController skillOverride = null;
-    public float coolTime = 1f;
-    public float attackDamage = 1f;
-    public float attackRadius = 1f;
-    public Vector3 attackPivot;
+    [SerializeField] AnimatorOverrideController skillOverride = null;
+    [SerializeField] float coolTime = 1f;
+    public float CoolTime { get { return coolTime; } }
+
+
+    [SerializeField] int needMp;
+    public int NeedMp { get { return needMp; } }
+
+
+    [SerializeField] float attackDamage = 1f;
+    public float AttackDamage { get { return attackDamage; } }
+
+    [SerializeField] float attackRadius = 1f;
+    public float AttackRadius { get { return attackRadius; } }
+
+    [SerializeField] Vector3 attackPivot;
+    public Vector3 AttackPivot { get { return attackPivot; } }
+
 
     Vector3 currentPivot;
 
@@ -18,7 +31,8 @@ public class Skill : ScriptableObject
     public Vector3 effectPosition;
     public Vector3 effectRotation;
 
-    public void UseSkill(Animator animator)
+
+    public void ChangeAnimatorFoSkill(Animator animator)
     {
         if (skillOverride != null)
         {

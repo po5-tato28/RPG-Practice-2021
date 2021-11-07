@@ -7,21 +7,24 @@ public class PlayerStats : ScriptableObject
 {
     public CommonStats commonStats = null;
 
+    [SerializeField] private int startLevel = 1;
+    public int StartLevel => startLevel;
+
+    [SerializeField] private int currentLevel = 1;
+    public int CurrentLevel => currentLevel;
+
+
     [SerializeField] private int maxMp = 100;
-    public int MaxMp { get { return maxMp; } }
+    public int MaxMp => maxMp;
     [SerializeField] private int currentMp = 100;
-    public int CurrentMp { get { return currentMp; } }
+    public int CurrentMp => currentMp; 
 
 
     [SerializeField] private int maxExp = 100;
-    public int MaxExp { get { return maxExp; } }
+    public int MaxExp => maxExp;
     [SerializeField] private int currentExp = 0;
-    public int CurrentExp { get { return currentExp; } }
-
-
-    [SerializeField] private int currentLevel = 1;
-    public int CurrentLevel { get { return currentLevel; } }
-
+    public int CurrentExp => currentExp; 
+        
 
     public int GetMpValue()
     {
@@ -30,5 +33,23 @@ public class PlayerStats : ScriptableObject
     public int GetExpValue()
     {
         return (currentExp / maxExp);
+    }
+
+    // ·¹º§¾÷ =================================
+    public int LevelUp(int grade = 1)
+    {
+        return currentLevel = currentLevel + grade;
+    }
+
+    public int AddMaxMp(int level)
+    {
+        int temp = level * 10;
+        return maxMp = maxMp + temp;
+    }
+
+    public int AddMaxExp(int level)
+    {
+        int temp = level * 100;
+        return maxExp = maxExp + temp;
     }
 }

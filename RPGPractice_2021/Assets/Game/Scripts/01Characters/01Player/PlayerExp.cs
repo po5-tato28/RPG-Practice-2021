@@ -4,25 +4,35 @@ using UnityEngine;
 
 public class PlayerExp : MonoBehaviour
 {
-    //public static PlayerExp Instance;
-
     public PlayerStats stats;
-
+    [SerializeField] UIManager uiManaer;
+    
     int cE; // current Exp
-    public int CE { get { return cE; } }
+    public int CE => cE;
+
+    int cL; // currentLevel;
+    public int CL => cL;
+
+
+    void Start()
+    {
+        cL = stats.StartLevel;
+    }
+
+    void Update()
+    {
+        if (cE >= stats.MaxExp)
+        {
+            ExpFull();
+        }
+    }
+
 
     private void OnEnable()
     {
         cE = stats.CurrentExp;
+        cL = stats.CurrentLevel;
     }
-
-    //private void Awake()
-    //{
-    //    if (Instance == null)
-    //    {
-    //        Instance = this;
-    //    }
-    //}
 
     public float GetExpValue()
     {
@@ -32,5 +42,17 @@ public class PlayerExp : MonoBehaviour
     public void TakeExp(int point)
     {
         cE = Mathf.Max(cE + point, 0);
+    }
+
+    public void ExpFull()
+    {        
+        cE = 0;
+        cL = stats.LevelUp();
+
+        uiManaer.SetLevelText();
+
+        stats.commonStats.AddMaxHp(cL);
+        stats.AddMaxMp(cL);
+        stats.AddMaxExp(cL);
     }
 }

@@ -72,13 +72,15 @@ public class PlayerCombat : Combat
         currentSkill = skill;
         isSkill = true;
 
-        playerController.FindTargetWhenUseSkill(currentSkill.attackPivot);
+        playerController.FindTargetWhenUseSkill(currentSkill.AttackPivot);
 
         Animator animator = GetComponent<Animator>();
-        skill.UseSkill(animator);
+        skill.ChangeAnimatorFoSkill(animator);
 
-        animator.SetTrigger("skill");
+        PlayerMp mp = GetComponent<PlayerMp>();
+        mp.TakeMp(currentSkill.NeedMp);
 
+        animator.SetTrigger("Skill");
     }
 
     void SkillEffect()
@@ -87,14 +89,14 @@ public class PlayerCombat : Combat
         if (currentSkill == null) return;
 
         //Transform parent = gameObject.transform;
-        Vector3 pivot = currentSkill.effectPosition + currentSkill.CalculatePivot(currentSkill.attackPivot);
+        Vector3 pivot = currentSkill.effectPosition + currentSkill.CalculatePivot(currentSkill.AttackPivot);
 
         combatEffect = Instantiate(currentSkill.effectPrefab, pivot, Quaternion.Euler(currentSkill.effectRotation));
         //combatEffect.transform.SetParent(parent, false);
     }
     void DestroySkillEffect()
     {
-        GetComponent<Animator>().SetTrigger("stopSkill");
+        //GetComponent<Animator>().SetTrigger("stopSkill");
         Destroy(combatEffect);
         isSkill = false;
     }
@@ -122,7 +124,7 @@ public class PlayerCombat : Combat
         {
             for (int i = 0; i < targets.Count; i++)
             {
-                targets[i].TakeDamage((int)currentSkill.attackDamage);
+                targets[i].TakeDamage((int)currentSkill.AttackDamage);
             }
         }
         else if (isSkill == false)
@@ -141,7 +143,7 @@ public class PlayerCombat : Combat
         {
             for (int i = 0; i < targets.Count; i++)
             {
-                targets[i].RecoverHealth((int)currentSkill.attackDamage);
+                targets[i].RecoverHealth((int)currentSkill.AttackDamage);
             }
         }
     }

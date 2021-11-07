@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public CommonStats common;
+    //public CommonStats common;
     [SerializeField] bool isDead = false;
 
-    int cH;
+    [SerializeField] int cH;
     public int CH { get { return cH; } }
-
 
     Animator animator;
 
+
     private void OnEnable()
     {
-        cH = common.MaxHp;
+        cH = GetInitialHealth();
         isDead = false;
     }
 
+    public int GetInitialHealth()
+    {
+        return GetComponent<BaseStats>().GetStat(StatsList.Hp);
+    }
 
     public bool IsDead()
     {
@@ -35,7 +39,7 @@ public class Health : MonoBehaviour
         cH = Mathf.Max(cH - damage, 0);
 
         //if (healthPoints == 0)
-        if (cH == 0)
+        if (cH <= 0)
         {
             Die();
         }
@@ -69,11 +73,10 @@ public class Health : MonoBehaviour
         //GetComponent<ActionScheduler>().CancelCurrentAction();
     }
 
+    
     public float GetHpValue()
     {
-        return ((float)cH / (float)common.MaxHp);
+        return ((float)cH / (float)GetInitialHealth());
     }
-
-
     
 }

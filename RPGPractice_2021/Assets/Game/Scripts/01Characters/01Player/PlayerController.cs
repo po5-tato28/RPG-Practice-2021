@@ -5,8 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private PlayerCombat combat;
-    private Health health;
     private Movement movement;
+
+    private Health health;
+    private PlayerMp mp;
+    private PlayerExp exp;
+    
 
     List<Health> enemys;
 
@@ -126,7 +130,7 @@ public class PlayerController : MonoBehaviour
         {
             case SkillType.ATTACK_ONE:
                 {
-                    Collider[] skillColliders = Physics.OverlapSphere(pivot, combat.currentSkill.attackRadius, layerMarsks);
+                    Collider[] skillColliders = Physics.OverlapSphere(pivot, combat.currentSkill.AttackRadius, layerMarsks);
 
                     foreach (var skillHealth in skillColliders)
                     {
@@ -145,7 +149,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case SkillType.ATTACK_MULTI:
                 {
-                    Collider[] skillColliders = Physics.OverlapSphere(pivot, combat.currentSkill.attackRadius, layerMarsks);
+                    Collider[] skillColliders = Physics.OverlapSphere(pivot, combat.currentSkill.AttackRadius, layerMarsks);
 
                     foreach (var skillHealth in skillColliders)
                     {

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72aa8ec36f3778d43ad4685ab1ebec0a, type: 3}
+  m_Name: Character Stats
+  m_EditorClassIdentifier: 
+  characterClasses:
+  - characterType: 0
+    stats:
+    - statsList: 0
+      levels: 64000000780000000000000000000000000000000000000000000000000000000000000000000000
+    - statsList: 1
+      levels: 64000000780000000000000000000000000000000000000000000000000000000000000000000000
+    - statsList: 3
+      levels: 64000000780000000000000000000000000000000000000000000000000000000000000000000000
+    - statsList: 4
+      levels: 0a0000000c0000000000000000000000000000000000000000000000000000000000000000000000
+  - characterType: 1
+    stats:
+    - statsList: 0
+      levels: 64000000
+    - statsList: 4
+      levels: 0a000000
+  - characterType: 2
+    stats:
+    - statsList: 0
+      levels: 00000000
+    - statsList: 4
+      levels: 00000000

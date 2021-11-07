@@ -10,4 +10,12 @@ public class CommonStats : ScriptableObject
 
     [SerializeField] private int currentHp = 100;
     public int CurrentHp { get { return currentHp; } set { currentHp = value; } }
+
+
+    // ·¹º§¾÷ =================================
+    public int AddMaxHp(int level)
+    {
+        int temp = level * 20;
+        return maxHp = maxHp + 20;
+    }
 }

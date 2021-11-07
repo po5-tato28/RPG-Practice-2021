@@ -10,6 +10,8 @@ public class EnemyCombat : Combat
 
     private void Update()
     {
+        if (player.IsDead()) return;
+
         if (GetIsInRange(player.transform))
         {
             animator.SetTrigger("Attack");

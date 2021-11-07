@@ -37,7 +37,7 @@ public class PlayerMovement : Movement
     protected override void UpdateAnimator()
     {
         Vector3 dir = new Vector3(charInput.horizontal, 0f, charInput.vertical);
-        animator.SetFloat("forwardSpeed", dir.magnitude);
+        animator.SetFloat("ForwardSpeed", dir.magnitude);
     }
 
     protected override void Move()

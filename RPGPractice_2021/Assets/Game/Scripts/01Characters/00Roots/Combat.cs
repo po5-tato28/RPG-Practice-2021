@@ -27,14 +27,14 @@ public abstract class Combat : MonoBehaviour
 
 	protected void TriggerAttack()
 	{
-		animator.ResetTrigger("stopAttack");
-		animator.SetTrigger("attack");
+		animator.ResetTrigger("StopAttack");
+		animator.SetTrigger("Attack");
 	}
 
 	protected void StopAttack()
 	{
-		animator.ResetTrigger("attack");
-		animator.SetTrigger("stopAttack");
+		animator.ResetTrigger("Attack");
+		animator.SetTrigger("StopAttack");
 	}
 
 	public abstract bool GetIsInRange(Transform targetTransform);

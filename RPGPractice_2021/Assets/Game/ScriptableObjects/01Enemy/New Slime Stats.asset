@@ -19,7 +19,7 @@ MonoBehaviour:
   attackRange: 2.5
   attackRate: 1
   attackForce: 1
-  attackDamage: 3
+  attackDamage: 50
   searchDuration: 4
   searchingTurnSpeed: 120
   dropExp: 10
