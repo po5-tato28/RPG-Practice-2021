@@ -22,6 +22,8 @@ public class EnemyController : MonoBehaviour
 
     float speed = 0.1f;
 
+    ItemDrop itemDrop;
+
 
     private void Awake()
     {
@@ -29,6 +31,8 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         enemyStats = GetComponent<BaseStats>();
+
+        itemDrop = GetComponent<ItemDrop>();
     }
     void Start()
     {
@@ -76,10 +80,12 @@ public class EnemyController : MonoBehaviour
         GameObject dead = Instantiate(deadEffect, new Vector3(0, 0.7f, 0), Quaternion.identity);
         dead.transform.SetParent(gameObject.transform, false);
 
+        itemDrop.Drop();
+
         Destroy(dead, 3f);
 
         // 비활성화
-        Invoke("DisableEnemy", 3f);
+        Invoke("DisableEnemy", 2f);
     }
 
     void DisableEnemy()
