@@ -7,7 +7,7 @@ public class PlayerExp : MonoBehaviour
 {
     //public PlayerStats stats;
     //public CharacterStats playerStats;
-    [SerializeField] UIManager uiManaer;
+    [SerializeField] UIManager uiManager;
     
     int currentExp; // current Exp
     public int CurrentExp => currentExp;
@@ -38,6 +38,6 @@ public class PlayerExp : MonoBehaviour
         currentExp = Mathf.Max(currentExp + point, 0);
 
         onTakeExp();
-        uiManaer.SetLevelText();
+        uiManager.SetLevelText();
     }
 }

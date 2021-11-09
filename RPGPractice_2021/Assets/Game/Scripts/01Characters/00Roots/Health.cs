@@ -17,8 +17,8 @@ public class Health : MonoBehaviour
 
     private void OnEnable()
     {
-        maxHp = GetInitialHealth();
-        currentHp = maxHp;
+        // maxHp = GetInitialHealth();
+        currentHp = GetInitialHealth();
 
         isDead = false;
 
