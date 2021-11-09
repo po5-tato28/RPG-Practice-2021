@@ -4,55 +4,57 @@ using UnityEngine;
 
 public class PlayerExp : MonoBehaviour
 {
-    public PlayerStats stats;
+    //public PlayerStats stats;
+    //public CharacterStats playerStats;
     [SerializeField] UIManager uiManaer;
     
-    int cE; // current Exp
-    public int CE => cE;
+    int currentExp; // current Exp
+    public int CurrentExp => currentExp;
 
-    int cL; // currentLevel;
-    public int CL => cL;
+    int currentLevel; // currentLevel;
+    public int CurrentLevel => currentLevel;
 
 
-    void Start()
+    void OnEnable()
     {
-        cL = stats.StartLevel;
+        currentExp = 0;
+        currentLevel = GetComponent<BaseStats>().GetLevel();
+        
     }
 
     void Update()
     {
-        if (cE >= stats.MaxExp)
+        if (currentExp >= GetInitialExp())
         {
             ExpFull();
         }
     }
 
-
-    private void OnEnable()
+    public int GetInitialExp()
     {
-        cE = stats.CurrentExp;
-        cL = stats.CurrentLevel;
+        return GetComponent<BaseStats>().GetStat(StatsType.ExpToLevelUp);
     }
 
     public float GetExpValue()
     {
-        return ((float)cE / (float)stats.MaxExp);
+        return ((float)currentExp / (float)GetInitialExp());
     }
 
     public void TakeExp(int point)
     {
-        cE = Mathf.Max(cE + point, 0);
+        currentExp = Mathf.Max(currentExp + point, 0);
     }
 
     public void ExpFull()
     {        
-        cE = 0;
-        cL = stats.LevelUp();
+        currentExp = 0;
+        //currentLevel = stats.LevelUp();
+        currentLevel = GetComponent<BaseStats>().CalculateLevel();
 
         uiManaer.SetLevelText();
 
-        stats.commonStats.AddMaxHp(cL);
-        stats.AddMaxMp(cL);
-        stats.AddMaxExp(cL);
+        //stats.commonStats.AddMaxHp(currentLevel);
+        //stats.AddMaxMp(currentLevel);
+        //stats.AddMaxExp(currentLevel);
     }
 }

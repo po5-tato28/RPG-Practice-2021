@@ -4,28 +4,35 @@ using UnityEngine;
 
 public class PlayerMp : MonoBehaviour
 {
-    public PlayerStats stats;
+    //public PlayerStats stats;
 
-    int cM; // current Mp
-    public int CM { get { return cM; } }
+    int maxMp;
+    int currentMp; 
+    public int CurrentMp { get { return currentMp; } }
 
     private void OnEnable()
     {
-        cM = stats.MaxMp;
+        maxMp = GetInitialMp();
+        currentMp = maxMp;
+    }
+
+    public int GetInitialMp()
+    {
+        return GetComponent<BaseStats>().GetStat(StatsType.Mp);
     }
 
     public float GetMpValue()
     {
-        return ((float)cM / (float)stats.MaxMp);
+        return ((float)currentMp / (float)GetInitialMp());
     }
 
     public void TakeMp(int point)
     {
-        cM = Mathf.Max(cM - point, 0);
+        currentMp = Mathf.Max(currentMp - point, 0);
     }
 
     public void RecoverMp(int point)
     {
-        cM = Mathf.Max(cM + point, 0);
+        currentMp = Mathf.Max(currentMp + point, 0);
     }
 }

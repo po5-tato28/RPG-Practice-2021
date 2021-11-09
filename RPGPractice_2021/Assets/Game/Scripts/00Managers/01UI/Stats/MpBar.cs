@@ -17,7 +17,7 @@ public class MpBar : MonoBehaviour
     {
         if (mpText != null)
         {
-            SetMpText(playerMp.CM, playerMp.stats.MaxMp);
+            SetMpText(playerMp.CurrentMp, playerMp.GetInitialMp());
         }
         //gameManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<GameManager>();
         //uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();
@@ -29,7 +29,7 @@ public class MpBar : MonoBehaviour
 
         if (mpText != null)
         {
-            SetMpText(playerMp.CM, playerMp.stats.MaxMp);
+            SetMpText(playerMp.CurrentMp, playerMp.GetInitialMp());
         }
     }
 

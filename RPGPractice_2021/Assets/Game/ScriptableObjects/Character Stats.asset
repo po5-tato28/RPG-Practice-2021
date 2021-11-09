@@ -15,23 +15,27 @@ MonoBehaviour:
   characterClasses:
   - characterType: 0
     stats:
-    - statsList: 0
+    - statsType: 0
+      levels: 6400000078000000820000008c00000096000000a0000000aa000000b4000000be000000d2000000
+    - statsType: 1
+      levels: 64000000780000008200000000000000000000000000000000000000000000000000000000000000
+    - statsType: 3
       levels: 64000000780000000000000000000000000000000000000000000000000000000000000000000000
-    - statsList: 1
-      levels: 64000000780000000000000000000000000000000000000000000000000000000000000000000000
-    - statsList: 3
-      levels: 64000000780000000000000000000000000000000000000000000000000000000000000000000000
-    - statsList: 4
+    - statsType: 4
       levels: 0a0000000c0000000000000000000000000000000000000000000000000000000000000000000000
   - characterType: 1
     stats:
-    - statsList: 0
+    - statsType: 0
       levels: 64000000
-    - statsList: 4
+    - statsType: 4
+      levels: 0a000000
+    - statsType: 2
       levels: 0a000000
   - characterType: 2
     stats:
-    - statsList: 0
-      levels: 00000000
-    - statsList: 4
-      levels: 00000000
+    - statsType: 0
+      levels: c8000000
+    - statsType: 4
+      levels: 14000000
+    - statsType: 2
+      levels: 1e000000

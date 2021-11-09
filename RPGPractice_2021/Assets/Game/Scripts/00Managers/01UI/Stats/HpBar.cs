@@ -22,7 +22,7 @@ public class HpBar : MonoBehaviour
     {
         if (hpText != null)
         {
-            SetHpText(health.CH, 100);
+            SetHpText(health.CurrentHp, 100);
         }
         //uiManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<UIManager>();
     }
@@ -32,7 +32,7 @@ public class HpBar : MonoBehaviour
         slider.value = health.GetHpValue();
         if (hpText != null)
         {
-            SetHpText(health.CH, 100);
+            SetHpText(health.CurrentHp, 100);
         }
     }
 

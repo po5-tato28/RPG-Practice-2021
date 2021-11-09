@@ -11,8 +11,9 @@ public class EnemyController : MonoBehaviour
     Health health;
 
     Vector3 targetPosition;
-    
-    [SerializeField] EnemyStats enemyStats;
+
+    //[SerializeField] EnemyStats enemyStats;
+    BaseStats enemyStats;
     Animator animator;
 
     // test¿ë
@@ -26,6 +27,8 @@ public class EnemyController : MonoBehaviour
     {
         health = GetComponent<Health>();
         animator = GetComponent<Animator>();
+
+        enemyStats = GetComponent<BaseStats>();
     }
     void Start()
     {
@@ -67,7 +70,7 @@ public class EnemyController : MonoBehaviour
     public void OnEnemyDead()
     {
         // exp
-        player.GetComponent<PlayerExp>().TakeExp(enemyStats.DropExp);        
+        player.GetComponent<PlayerExp>().TakeExp(enemyStats.GetStat(StatsType.ExpReward));
 
         // dead effect
         GameObject dead = Instantiate(deadEffect, new Vector3(0, 0.7f, 0), Quaternion.identity);

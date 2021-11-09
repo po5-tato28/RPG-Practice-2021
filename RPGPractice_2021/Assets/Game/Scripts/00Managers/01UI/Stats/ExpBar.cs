@@ -15,7 +15,7 @@ public class ExpBar : MonoBehaviour
 
     private void Start()
     {
-        SetExpText(playerExp.CE, playerExp.stats.MaxExp);
+        SetExpText(playerExp.CurrentExp, playerExp.GetInitialExp());
     }
 
     private void Update()
@@ -25,7 +25,7 @@ public class ExpBar : MonoBehaviour
 
         if (expText != null)
         {
-            SetExpText(playerExp.CE, playerExp.stats.MaxExp);
+            SetExpText(playerExp.CurrentExp, playerExp.GetInitialExp());
         }
     }
 

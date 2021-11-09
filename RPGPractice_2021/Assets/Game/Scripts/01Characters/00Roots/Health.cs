@@ -7,21 +7,25 @@ public class Health : MonoBehaviour
     //public CommonStats common;
     [SerializeField] bool isDead = false;
 
-    [SerializeField] int cH;
-    public int CH { get { return cH; } }
+
+    int maxHp;
+    int currentHp;
+    public int CurrentHp { get { return currentHp; } }
 
     Animator animator;
 
 
     private void OnEnable()
     {
-        cH = GetInitialHealth();
+        maxHp = GetInitialHealth();
+        currentHp = maxHp;
+
         isDead = false;
     }
 
     public int GetInitialHealth()
     {
-        return GetComponent<BaseStats>().GetStat(StatsList.Hp);
+        return GetComponent<BaseStats>().GetStat(StatsType.Hp);
     }
 
     public bool IsDead()
@@ -36,14 +40,14 @@ public class Health : MonoBehaviour
 
         //healthPoints = Mathf.Max(healthPoints - damage, 0);
         // common.CurrentHp = (int)Mathf.Max(common.CurrentHp - damage, 0);
-        cH = Mathf.Max(cH - damage, 0);
+        currentHp = Mathf.Max(currentHp - damage, 0);
 
         //if (healthPoints == 0)
-        if (cH <= 0)
+        if (currentHp <= 0)
         {
             Die();
         }
-        Debug.Log("hp :: " + cH);
+        Debug.Log("hp :: " + currentHp);
         //Debug.Log("maxhp :: " + common.MaxHp);
 
         GetComponent<Animator>().SetTrigger("Hit");
@@ -54,9 +58,9 @@ public class Health : MonoBehaviour
 
     public void RecoverHealth(int damage)
     {
-        if (cH >= 100) return;
+        if (currentHp >= 100) return;
 
-        cH = Mathf.Max(cH + damage, 10);
+        currentHp = Mathf.Max(currentHp + damage, 10);
     }
 
 
@@ -76,7 +80,7 @@ public class Health : MonoBehaviour
     
     public float GetHpValue()
     {
-        return ((float)cH / (float)GetInitialHealth());
+        return ((float)currentHp / (float)GetInitialHealth());
     }
     
 }

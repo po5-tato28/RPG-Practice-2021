@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EnemyCombat : Combat
 {
-    [SerializeField] EnemyStats enemyStats;
+    //[SerializeField] EnemyStats enemyStats;
+    BaseStats enemyStats;
 
     public Health player;
+
+    float attackRange = 2.5f;
 
     private void Update()
     {
@@ -21,7 +24,7 @@ public class EnemyCombat : Combat
 
     public override void Hit()
     {
-        player.TakeDamage((int)enemyStats.AttackDamage);
+        player.TakeDamage((int)enemyStats.GetStat(StatsType.Damage));
     }
 
     public override void WeaponEffect()
@@ -40,6 +43,6 @@ public class EnemyCombat : Combat
 
     public override bool GetIsInRange(Transform targetTransform)
     {
-        return Vector3.Distance(transform.position, targetTransform.position) < enemyStats.AttackRange;
+        return Vector3.Distance(transform.position, targetTransform.position) < attackRange;
     }
 }
