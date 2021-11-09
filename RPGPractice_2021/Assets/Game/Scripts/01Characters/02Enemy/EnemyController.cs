@@ -54,7 +54,7 @@ public class EnemyController : MonoBehaviour
 
     public void Attacked()
     {
-        Debug.Log("Attacked");
+        //Debug.Log("Attacked");
 
         // MoveBack()
         Vector3 move = new Vector3(0, 0, -10);

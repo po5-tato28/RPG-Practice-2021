@@ -6,18 +6,18 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public PlayerStats playerStats;
+    public BaseStats playerStats;
     [SerializeField] Text levelText;
 
     
     void Start()
     {
-        levelText.text = "Lv." + playerStats.StartLevel.ToString();
+        SetLevelText();
     }
 
     public void SetLevelText()
     {
-        levelText.text = "Lv." + playerStats.CurrentLevel.ToString();
+        levelText.text = "Lv." + playerStats.GetCurrentLevel();
     }
 }
 

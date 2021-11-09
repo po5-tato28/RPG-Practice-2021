@@ -21,6 +21,13 @@ public class Health : MonoBehaviour
         currentHp = maxHp;
 
         isDead = false;
+
+        GetComponent<BaseStats>().onLevelUp += RecoverHealth;
+    }
+
+    private void OnDisable()
+    {
+        GetComponent<BaseStats>().onLevelUp -= RecoverHealth;
     }
 
     public int GetInitialHealth()
@@ -47,8 +54,7 @@ public class Health : MonoBehaviour
         {
             Die();
         }
-        Debug.Log("hp :: " + currentHp);
-        //Debug.Log("maxhp :: " + common.MaxHp);
+        //Debug.Log("hp :: " + currentHp);
 
         GetComponent<Animator>().SetTrigger("Hit");
 
@@ -56,11 +62,13 @@ public class Health : MonoBehaviour
         //Attacked();
     }
 
-    public void RecoverHealth(int damage)
+    public void RecoverHealth()
     {
-        if (currentHp >= 100) return;
+        if (currentHp >= GetInitialHealth()) return;
 
-        currentHp = Mathf.Max(currentHp + damage, 10);
+        int recoverHp = GetComponent<BaseStats>().GetStat(StatsType.Hp);
+
+        currentHp = Mathf.Max(currentHp, recoverHp);
     }
 
 

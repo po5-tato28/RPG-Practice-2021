@@ -5160,7 +5160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c37e153ec64264e8196d4e82fce675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: cdbbc1c8599424d428cc9114ee64ba5a, type: 2}
+  playerStats: {fileID: 349900721}
   levelText: {fileID: 764334077}
 --- !u!1 &2114559008
 GameObject:

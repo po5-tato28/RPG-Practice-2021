@@ -143,7 +143,8 @@ public class PlayerCombat : Combat
         {
             for (int i = 0; i < targets.Count; i++)
             {
-                targets[i].RecoverHealth((int)currentSkill.AttackDamage);
+                //targets[i].RecoverHealth((int)currentSkill.AttackDamage);
+                targets[i].RecoverHealth();
             }
         }
     }
