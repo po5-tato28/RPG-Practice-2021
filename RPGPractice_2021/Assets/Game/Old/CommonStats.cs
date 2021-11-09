@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Stats/Common")]
+//[CreateAssetMenu(menuName = "Stats/Common")]
+[Obsolete("Not use anymore.", true)]
 public class CommonStats : ScriptableObject
 {
     [SerializeField] private int maxHp = 100;

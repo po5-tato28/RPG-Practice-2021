@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Stats/Enemy")]
+[Obsolete("Not use anymore.", true)]
+//[CreateAssetMenu(menuName = "Stats/Enemy")]
 public class EnemyStats : ScriptableObject
 {
     public CommonStats commonStats = null;

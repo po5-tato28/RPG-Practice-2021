@@ -8,5 +8,5 @@ public enum StatsType
     Mp,
     ExpReward,
     ExpToLevelUp,
-    Damage
+    Damage,
 }
