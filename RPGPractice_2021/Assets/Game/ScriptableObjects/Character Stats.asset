@@ -30,7 +30,7 @@ MonoBehaviour:
     - statsType: 4
       levels: 0a000000
     - statsType: 2
-      levels: 0a000000
+      levels: 1e000000
   - characterType: 2
     stats:
     - statsType: 0

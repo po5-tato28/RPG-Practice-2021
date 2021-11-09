@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerExp : MonoBehaviour
-{
-    //public PlayerStats stats;
-    //public CharacterStats playerStats;
-    [SerializeField] UIManager uiManager;
-    
+{    
     int currentExp; // current Exp
-    public int CurrentExp => currentExp;
+    public int CurrentExp
+    {
+        get { return currentExp; }
+        set { currentExp = value; }
+    }
 
     public event Action onTakeExp;
 
@@ -19,9 +19,6 @@ public class PlayerExp : MonoBehaviour
         currentExp = 0;
     }
 
-    void Update()
-    {
-    }
 
     public int GetInitialExp()
     {
@@ -30,7 +27,9 @@ public class PlayerExp : MonoBehaviour
 
     public float GetExpValue()
     {
-        return ((float)currentExp / (float)GetInitialExp());
+        float temp = ((float)currentExp / (float)GetInitialExp());
+
+        return temp;
     }
 
     public void TakeExp(int point)
@@ -38,6 +37,5 @@ public class PlayerExp : MonoBehaviour
         currentExp = Mathf.Max(currentExp + point, 0);
 
         onTakeExp();
-        uiManager.SetLevelText();
     }
 }

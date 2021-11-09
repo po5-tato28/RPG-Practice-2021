@@ -6,10 +6,20 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public BaseStats playerStats;
+    [SerializeField] BaseStats playerStats;
+
     [SerializeField] Text levelText;
 
-    
+    private void OnEnable()
+    {
+        playerStats.onLevelUp += SetLevelText;
+    }
+    private void OnDisable()
+    {
+        playerStats.onLevelUp -= SetLevelText;
+    }
+
+
     void Start()
     {
         SetLevelText();
