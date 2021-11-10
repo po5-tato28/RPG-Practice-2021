@@ -46,9 +46,14 @@ public class InventoryUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            isActive = !isActive;
-            inventory.SetActive(isActive);
+            ActiveInventory();
         }
+    }
+
+    public void ActiveInventory()
+    {
+        isActive = !isActive;
+        inventory.SetActive(isActive);
     }
 
     private void SlotChange(int count)
@@ -66,9 +71,9 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void AddSlot()
-    {
-        inven.SlotCount++;
-    }
+    //public void AddSlot()
+    //{
+    //    inven.SlotCount++;
+    //}
 }
 
