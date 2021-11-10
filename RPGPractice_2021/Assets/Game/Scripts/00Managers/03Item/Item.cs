@@ -11,8 +11,14 @@ public enum ItemType
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] ItemType type;
+    [SerializeField] ItemType item;
+    [SerializeField] ItemDatabase itemdata;
     [SerializeField] int point;
+
+    private void Start()
+    {
+        itemdata.GetItem();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,7 +32,7 @@ public class Item : MonoBehaviour
     // Relay = 전달하다
     void RelayPoint()
     {
-        switch(type)
+        switch(item)
         {
             case ItemType.Exp:
                 {

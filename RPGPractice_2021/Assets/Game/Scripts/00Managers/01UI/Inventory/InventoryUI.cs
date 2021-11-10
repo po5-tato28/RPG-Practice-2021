@@ -39,7 +39,6 @@ public class InventoryUI : MonoBehaviour
         {
             inventory.SetActive(false);
         }
-
     }
 
     void Update()
