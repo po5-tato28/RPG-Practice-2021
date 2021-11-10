@@ -1,18 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public event Action<int> onSloutCountChange;
+
+    private int slotCount;
+    public int SlotCount
     {
-        
+        get => slotCount;
+        set
+        {
+            slotCount = value;
+            onSloutCountChange.Invoke(slotCount);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        slotCount = 4;
     }
+
 }

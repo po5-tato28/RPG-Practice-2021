@@ -549,6 +549,8 @@ GameObject:
   - component: {fileID: 7298229582423496109}
   - component: {fileID: 115575214670765893}
   - component: {fileID: 8322864201861628790}
+  - component: {fileID: 349900721}
+  - component: {fileID: 3808901219975383086}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -646,10 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0263a8afc6a1a47861a14d9d5498bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  common: {fileID: 11400000, guid: b4e8c198855a9324cbba1d8de25d1415, type: 2}
   isDead: 0
-  attackedEffect: {fileID: 1713201388092932, guid: 66de1b46a882df8419da5e3fc87bf35d, type: 3}
-  deadEffect: {fileID: 1057183410796960, guid: d7705af78d2a7dd4291b742b45bdade8, type: 3}
 --- !u!114 &5628187690023109752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,7 +661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350c60c1bf0705246901f0e653fa3c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: cdbbc1c8599424d428cc9114ee64ba5a, type: 2}
 --- !u!114 &8627782048995596367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,7 +673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07251f9f28a1c14f80cbf3fc7e92d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: cdbbc1c8599424d428cc9114ee64ba5a, type: 2}
 --- !u!114 &7298229582423496109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,7 +685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890dd08f93c3342408e1e4b694635d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 1
   cam: {fileID: 0}
   targets: []
   center: {fileID: 7651006594674076895}
@@ -724,6 +720,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e071a23eeba74a4cb00e6b2eea0f87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &349900721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347843475052522153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e039c35261057b4b8e518898b986ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingLevel: 1
+  characterType: 0
+  characterStats: {fileID: 11400000, guid: befb960ce5048d04aa8e5753250ce03e, type: 2}
+--- !u!114 &3808901219975383086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347843475052522153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15fcfc7255d72f848ba29791e9bc745a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  slots: []
 --- !u!1 &2347844305440079603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,7 +1510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4560404972464298455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.473, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2342363416606084345}
