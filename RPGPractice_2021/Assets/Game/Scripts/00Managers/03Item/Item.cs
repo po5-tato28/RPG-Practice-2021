@@ -15,9 +15,10 @@ public class Item : MonoBehaviour
     [SerializeField] ItemDatabase itemdata;
     [SerializeField] int point;
 
+
     private void Start()
     {
-        itemdata.GetItem();
+        point = itemdata.GetDatas(item);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,7 +28,7 @@ public class Item : MonoBehaviour
             RelayPoint();
             Destroy(this.gameObject);
         }
-    }
+    }    
 
     // Relay = 전달하다
     void RelayPoint()
@@ -36,7 +37,7 @@ public class Item : MonoBehaviour
         {
             case ItemType.Exp:
                 {
-                    point = 10;
+                    point = itemdata.GetDatas(item);
 
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerExp>().TakeExp(point);
                 }

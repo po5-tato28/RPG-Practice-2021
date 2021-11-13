@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemClasses:
   - itemType: 1
-    sprite: {fileID: 21300000, guid: e52ea25af699fd445b7046374f81a5b9, type: 3}
+    prefab: {fileID: 7838530576938723458, guid: 6fd3202a44a7b1b408bd6f9c22e4dd5c, type: 3}
     items:
     - value: 10
   - itemType: 2
-    sprite: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
+    prefab: {fileID: 6649047414926326460, guid: 6cfdbf31174adf3489135f879a512ebc, type: 3}
     items:
     - value: 10
   - itemType: 0
-    sprite: {fileID: 21300000, guid: e7d29a79bc7fae248887c8a08a160303, type: 3}
+    prefab: {fileID: 8537993005589258054, guid: bfe5895cac850b94f9503b756a83e70b, type: 3}
     items:
     - value: 10

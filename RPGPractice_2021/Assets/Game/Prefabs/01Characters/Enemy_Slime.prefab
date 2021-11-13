@@ -496,6 +496,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 8537993005589258054, guid: bfe5895cac850b94f9503b756a83e70b, type: 3}
+  - {fileID: 7838530576938723458, guid: 6fd3202a44a7b1b408bd6f9c22e4dd5c, type: 3}
+  - {fileID: 6649047414926326460, guid: 6cfdbf31174adf3489135f879a512ebc, type: 3}
 --- !u!1 &909383765635549077
 GameObject:
   m_ObjectHideFlags: 0

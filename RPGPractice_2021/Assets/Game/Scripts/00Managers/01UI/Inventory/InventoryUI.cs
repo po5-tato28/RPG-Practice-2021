@@ -12,6 +12,9 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] List<Slot> slots;
     [SerializeField] Transform slotHolder;
 
+    [SerializeField] ItemDatabase items;
+
+
     Inventory inven;
 
     private void Awake()
