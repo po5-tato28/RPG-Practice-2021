@@ -25,12 +25,8 @@ public class Slot : MonoBehaviour
     public void AddItem(Item item)
     {
         getItem = item;
-        Debug.Log(item.ToString());
 
         slotImage.sprite = item.ItemImage;
-        Debug.Log(item.ItemImage.ToString());
-        Debug.Log(slotImage.sprite.ToString());
-        //countText.text = itemCount.ToString();
 
         if (slotImage.gameObject.activeSelf == false)
             slotImage.gameObject.SetActive(true);      

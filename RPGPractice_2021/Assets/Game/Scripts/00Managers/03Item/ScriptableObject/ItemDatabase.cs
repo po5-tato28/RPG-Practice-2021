@@ -19,14 +19,12 @@ public class ItemDatabase : ScriptableObject
     [System.Serializable]
     class ItemValueListClass
     {
-        // item sprite
         public int itemNumber;
         public Sprite sprite;
         public int point;
     }
 
-    // dictionary로 저장 < 캐릭터 타입, 값 > >
-    // Dictionary < TKey,TValue >
+    
     [SerializeField] Dictionary<ItemType, Dictionary<int, int>> rankTable = null;
     [SerializeField] Dictionary<ItemType, Dictionary<int, Sprite>> spriteTable = null;
 
@@ -39,7 +37,6 @@ public class ItemDatabase : ScriptableObject
         // 전달받은 매개변수의 값을 임시변수 ranks 배열에 저장
         int rank = rankTable[type][num];
 
-        // ranks에서 [rnk-1] 인덱스의 값을 반환
         return rank;
     }
 
@@ -50,7 +47,6 @@ public class ItemDatabase : ScriptableObject
         // 전달받은 매개변수의 값을 임시변수 sprites 배열에 저장
         Sprite sprite = spriteTable[type][num];
 
-        // ranks에서 [rnk-1] 인덱스의 값을 반환
         return sprite;
     }
 
@@ -59,11 +55,13 @@ public class ItemDatabase : ScriptableObject
     {
         // 이미 설정되어있으면 바로 빠져나간다
         if (rankTable != null) return;
+        if (spriteTable != null) return;
 
+        // 초기화
         rankTable = new Dictionary<ItemType, Dictionary<int, int>>();
         spriteTable = new Dictionary<ItemType, Dictionary<int, Sprite>>();
 
-        // 
+        // int (= itemNumber)를 키값으로 하는 임시 컨테이너
         var itemRankTable = new Dictionary<int, int>();
         var itemSpriteTable = new Dictionary<int, Sprite>();
 
@@ -72,12 +70,12 @@ public class ItemDatabase : ScriptableObject
         {
             foreach (ItemValueListClass itemValue in item.itemList)
             {
-                // 값을 추가한다      
+                // itemNumber를 key값으로, point와 sprite를 value로 추가한다      
                 itemRankTable.Add(itemValue.itemNumber, itemValue.point);
                 itemSpriteTable.Add(itemValue.itemNumber, itemValue.sprite);
             }
 
-            // 배열 형태로 값을 전달한다.
+            // 값을 전달한다.
             rankTable[item.itemType] = itemRankTable;
             spriteTable[item.itemType] = itemSpriteTable;
         }

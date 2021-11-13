@@ -59,7 +59,6 @@ public class Item : MonoBehaviour
                     GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().RecoverHealth(point);
                     
                     inventory.GetItem(this);
-                    Debug.Log(this.ToString());
                 }
                 break;
             case ItemType.Mp:
@@ -67,7 +66,6 @@ public class Item : MonoBehaviour
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMp>().RecoverMp(point);
 
                     inventory.GetItem(this);
-                    Debug.Log(this.ToString());
                 }
                 break;
             case ItemType.Exp:
@@ -75,7 +73,6 @@ public class Item : MonoBehaviour
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerExp>().GainExp(point);
 
                     inventory.GetItem(this);
-                    Debug.Log(this.ToString());
                 }
                 break;
             default:
