@@ -4,21 +4,40 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Exp,
     Hp,
     Mp,
+    Exp,
 }
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] ItemType item;
+    [SerializeField] ItemType itemType;
+    public ItemType ItemType { get { return itemType; } }
+
+    [SerializeField]
+    [Range(10000, 20000)]
+    int itemNumber;
+
+
     [SerializeField] ItemDatabase itemdata;
+
     [SerializeField] int point;
 
+    [SerializeField] Sprite itemImage;
+    public Sprite ItemImage { get { return itemImage; } }
+
+    InventoryUI inventory;
+
+    private void Awake()
+    {
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryUI>();
+    }
 
     private void Start()
     {
-        point = itemdata.GetDatas(item);
+        point = itemdata.GetItemValues(itemType, itemNumber);
+
+        itemImage = itemdata.GetItemSprites(itemType, itemNumber);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,23 +52,30 @@ public class Item : MonoBehaviour
     // Relay = 전달하다
     void RelayPoint()
     {
-        switch(item)
+        switch(itemType)
         {
-            case ItemType.Exp:
-                {
-                    point = itemdata.GetDatas(item);
-
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerExp>().TakeExp(point);
-                }
-                break;
             case ItemType.Hp:
-                { 
-
+                {
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().RecoverHealth(point);
+                    
+                    inventory.GetItem(this);
+                    Debug.Log(this.ToString());
                 }
                 break;
             case ItemType.Mp:
                 {
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMp>().RecoverMp(point);
 
+                    inventory.GetItem(this);
+                    Debug.Log(this.ToString());
+                }
+                break;
+            case ItemType.Exp:
+                {
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerExp>().GainExp(point);
+
+                    inventory.GetItem(this);
+                    Debug.Log(this.ToString());
                 }
                 break;
             default:

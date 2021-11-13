@@ -74,7 +74,7 @@ public class EnemyController : MonoBehaviour
     public void OnEnemyDead()
     {
         // exp
-        player.GetComponent<PlayerExp>().TakeExp(enemyStats.GetStat(StatsType.ExpReward));
+        player.GetComponent<PlayerExp>().GainExp(enemyStats.GetStat(StatsType.ExpReward));
 
         // dead effect
         GameObject dead = Instantiate(deadEffect, new Vector3(0, 0.7f, 0), Quaternion.identity);

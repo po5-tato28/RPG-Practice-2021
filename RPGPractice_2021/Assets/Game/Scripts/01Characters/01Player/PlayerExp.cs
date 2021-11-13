@@ -32,7 +32,7 @@ public class PlayerExp : MonoBehaviour
         return temp;
     }
 
-    public void TakeExp(int point)
+    public void GainExp(int point)
     {
         currentExp = Mathf.Max(currentExp + point, 0);
 

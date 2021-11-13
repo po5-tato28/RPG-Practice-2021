@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviour
 
     public void SetLevelText()
     {
+        // m = 사용하지않음
+
         levelText.text = "Lv." + playerStats.GetCurrentLevel();
     }
 }

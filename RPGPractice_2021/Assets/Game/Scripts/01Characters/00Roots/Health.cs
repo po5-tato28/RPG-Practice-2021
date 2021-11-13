@@ -71,6 +71,15 @@ public class Health : MonoBehaviour
         currentHp = Mathf.Max(currentHp, recoverHp);
     }
 
+    public void RecoverHealth(int point = 0)
+    {
+        if (currentHp >= GetInitialHealth()) return;
+
+        int recoverHp = currentHp + point;
+
+        currentHp = Mathf.Max(currentHp, recoverHp);
+    }
+
 
     private void Die()
     {

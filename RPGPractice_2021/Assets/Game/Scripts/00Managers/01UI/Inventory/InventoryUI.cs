@@ -10,6 +10,7 @@ public class InventoryUI : MonoBehaviour
     bool isActive = false;
 
     [SerializeField] List<Slot> slots;
+    [SerializeField] List<Item> itemCount;
     [SerializeField] Transform slotHolder;
 
     [SerializeField] ItemDatabase items;
@@ -22,6 +23,7 @@ public class InventoryUI : MonoBehaviour
         inven = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
     }
 
+    /*
     private void OnEnable()
     {
         inven.onSloutCountChange += SlotChange;
@@ -31,12 +33,16 @@ public class InventoryUI : MonoBehaviour
     {
         inven.onSloutCountChange -= SlotChange;
     }
+    */
+
 
     void Start()
     {
         // Slot 리스트에 자식들을 전달하는 방법
-        slots = new List<Slot>();        
+        slots = new List<Slot>();
         slotHolder.GetComponentsInChildren<Slot>(slots);
+
+        itemCount = new List<Item>();        
 
         if (inventory.activeSelf)
         {
@@ -58,6 +64,7 @@ public class InventoryUI : MonoBehaviour
         inventory.SetActive(isActive);
     }
 
+    /*
     private void SlotChange(int count)
     {
         for (int i = 0; i < slots.Count; i++)
@@ -77,5 +84,16 @@ public class InventoryUI : MonoBehaviour
     //{
     //    inven.SlotCount++;
     //}
+    */
+
+
+    public void GetItem(Item item, int count = 1)
+    {
+        // itemCount.Count = 0개 -> 인벤토리 0번
+        slots[itemCount.Count].SetSlotCount(count);
+        slots[itemCount.Count].AddItem(item);
+
+        itemCount.Add(item);
+    }
 }
 
