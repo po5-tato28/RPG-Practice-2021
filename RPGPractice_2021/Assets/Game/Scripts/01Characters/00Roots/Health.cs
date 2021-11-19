@@ -56,11 +56,12 @@ public class Health : MonoBehaviour
         }
         //Debug.Log("hp :: " + currentHp);
 
-        GetComponent<Animator>().SetTrigger("Hit");
+        GetComponent<Animator>().SetBool("Hit", true);
 
         //MoveBack();
         //Attacked();
     }
+
 
     public void RecoverHealth()
     {

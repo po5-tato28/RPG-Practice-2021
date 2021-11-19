@@ -28,13 +28,13 @@ public abstract class Combat : MonoBehaviour
 	}
 
 
-    protected void TriggerAttack()
+    protected virtual void TriggerAttack()
 	{
 		animator.ResetTrigger("StopAttack");
 		animator.SetTrigger("Attack");
 	}
 
-	protected void StopAttack()
+	protected virtual void StopAttack()
 	{
 		animator.ResetTrigger("Attack");
 		animator.SetTrigger("StopAttack");

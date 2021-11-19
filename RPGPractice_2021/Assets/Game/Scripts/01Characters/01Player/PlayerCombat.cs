@@ -80,6 +80,7 @@ public class PlayerCombat : Combat
         PlayerMp mp = GetComponent<PlayerMp>();
         mp.TakeMp(currentSkill.NeedMp);
 
+        animator.ResetTrigger("StopSkill");
         animator.SetTrigger("Skill");
     }
 
@@ -114,6 +115,8 @@ public class PlayerCombat : Combat
     }
     public override void DestroyWeaponEffect()
     {
+        animator.ResetTrigger("Skill");
+        animator.SetTrigger("StopSkill");
         Destroy(combatEffect);
     }
 
@@ -174,5 +177,13 @@ public class PlayerCombat : Combat
         Animator animator = GetComponent<Animator>();
         weapon.Spawn(handTransform, animator);
     }
+    protected override void TriggerAttack()
+    {
+        animator.SetBool("Attack", true);
+    }
 
+    protected override void StopAttack()
+    {
+        animator.SetBool("Attack", false);
+    }
 }
