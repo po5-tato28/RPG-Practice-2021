@@ -36,6 +36,8 @@ public class PlayerCombat : Combat
     //GameObject combatEffect;
 
     bool isSkill = false;
+    bool isTriggerAttack = false;
+    public bool IsTriggerAttack { get { return isTriggerAttack; } }
 
 
     protected override void Awake()
@@ -65,6 +67,11 @@ public class PlayerCombat : Combat
         playerController.FindTarget();
         UpdateAnimator();
 
+        // ÇÃ·¡±×
+        if (isTriggerAttack)
+        {
+            animator.ResetTrigger("Hit");
+        }
     }
 
     public void TriggerSkill(Skill skill)
@@ -113,6 +120,7 @@ public class PlayerCombat : Combat
         combatEffect = Instantiate(currentWeapon.EffectPrefab, currentWeapon.EffectPosition, Quaternion.Euler(currentWeapon.EffectRotation));
         combatEffect.transform.SetParent(parent, false);
     }
+
     public override void DestroyWeaponEffect()
     {
         animator.ResetTrigger("Skill");
@@ -179,11 +187,13 @@ public class PlayerCombat : Combat
     }
     protected override void TriggerAttack()
     {
+        //isTriggerAttack = true;
         animator.SetBool("Attack", true);
     }
 
     protected override void StopAttack()
     {
         animator.SetBool("Attack", false);
+        //isTriggerAttack = false;
     }
 }

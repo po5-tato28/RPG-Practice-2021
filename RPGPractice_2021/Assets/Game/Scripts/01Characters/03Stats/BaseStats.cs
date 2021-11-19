@@ -80,7 +80,7 @@ public class BaseStats : MonoBehaviour
         // exp가 비어있으면 -> 시작레벨(startingLevel) 반환후 종료
         if (exp == null)
         {
-            Debug.Log(startingLevel);
+            //Debug.Log(startingLevel);
             return startingLevel;
         }
     

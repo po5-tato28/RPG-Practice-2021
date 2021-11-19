@@ -56,12 +56,24 @@ public class Health : MonoBehaviour
         }
         //Debug.Log("hp :: " + currentHp);
 
-        GetComponent<Animator>().SetBool("Hit", true);
+        SettingHitToTrue();
 
         //MoveBack();
         //Attacked();
     }
 
+    private void SettingHitToTrue()
+    {
+        if (this.gameObject.CompareTag("Player"))
+        {
+            GetComponent<Animator>().SetTrigger("Hit");
+        }
+
+        else if (this.gameObject.CompareTag("Enemy"))
+        {
+            GetComponent<Animator>().SetTrigger("Hit");
+        }        
+    }
 
     public void RecoverHealth()
     {

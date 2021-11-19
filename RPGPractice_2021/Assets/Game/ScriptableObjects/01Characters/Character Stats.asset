@@ -26,11 +26,11 @@ MonoBehaviour:
   - characterType: 1
     stats:
     - statsType: 0
-      levels: 64000000
+      levels: 14000000
     - statsType: 4
-      levels: 0a000000
+      levels: 03000000
     - statsType: 2
-      levels: 28000000
+      levels: 0a000000
   - characterType: 2
     stats:
     - statsType: 0
