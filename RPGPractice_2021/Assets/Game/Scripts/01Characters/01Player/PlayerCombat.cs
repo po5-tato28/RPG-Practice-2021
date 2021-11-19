@@ -124,14 +124,14 @@ public class PlayerCombat : Combat
         {
             for (int i = 0; i < targets.Count; i++)
             {
-                targets[i].TakeDamage((int)currentSkill.AttackDamage);
+                targets[i].TakeDamage((int)baseStats.GetStat(StatsType.Damage));
             }
         }
         else if (isSkill == false)
         {
             for (int i = 0; i < targets.Count; i++)
             {
-                targets[i].TakeDamage((int)currentWeapon.AttackDamage);
+                targets[i].TakeDamage((int)baseStats.GetStat(StatsType.Damage));
             }
         }
     }

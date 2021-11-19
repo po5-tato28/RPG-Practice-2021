@@ -662,6 +662,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 349900710}
+    - target: {fileID: 8281283524927758050, guid: 4833b9735062d7448bb35a1abe1db61a, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 349900710}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4833b9735062d7448bb35a1abe1db61a, type: 3}
 --- !u!1 &324205601
@@ -1527,6 +1531,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8281283524927758050, guid: 4833b9735062d7448bb35a1abe1db61a, type: 3}
       propertyPath: player
+      value: 
+      objectReference: {fileID: 349900710}
+    - target: {fileID: 8281283524927758050, guid: 4833b9735062d7448bb35a1abe1db61a, type: 3}
+      propertyPath: target
       value: 
       objectReference: {fileID: 349900710}
     m_RemovedComponents: []
@@ -4136,6 +4144,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 349900710}
+    - target: {fileID: 8281283524927758050, guid: 4833b9735062d7448bb35a1abe1db61a, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 349900710}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4833b9735062d7448bb35a1abe1db61a, type: 3}
 --- !u!1 &1119045407
@@ -4189,6 +4201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 1882724552}
   slots: []
+  itemCount: []
   slotHolder: {fileID: 908360190}
   items: {fileID: 11400000, guid: 5822467fcbfd8f54198f446c92bcfc12, type: 2}
 --- !u!1001 &1127034629
@@ -4645,6 +4658,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8281283524927758050, guid: 4833b9735062d7448bb35a1abe1db61a, type: 3}
       propertyPath: player
+      value: 
+      objectReference: {fileID: 349900710}
+    - target: {fileID: 8281283524927758050, guid: 4833b9735062d7448bb35a1abe1db61a, type: 3}
+      propertyPath: target
       value: 
       objectReference: {fileID: 349900710}
     m_RemovedComponents: []
@@ -6320,6 +6337,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8281283524927758050, guid: 4833b9735062d7448bb35a1abe1db61a, type: 3}
       propertyPath: player
+      value: 
+      objectReference: {fileID: 349900710}
+    - target: {fileID: 8281283524927758050, guid: 4833b9735062d7448bb35a1abe1db61a, type: 3}
+      propertyPath: target
       value: 
       objectReference: {fileID: 349900710}
     m_RemovedComponents: []

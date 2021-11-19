@@ -4,8 +4,7 @@ using UnityEngine;
 
 public abstract class Combat : MonoBehaviour
 {
-
-	/*[SerializeField] */protected float timeBetweenAttacks = 1f;
+	protected float timeBetweenAttacks = 3f;
 
 	protected Rigidbody rigidBody;
 	protected Animator animator;
@@ -18,14 +17,18 @@ public abstract class Combat : MonoBehaviour
 
 	protected GameObject combatEffect;
 
+	protected BaseStats baseStats;
+
+
 	protected virtual void Awake()
 	{
 		rigidBody = GetComponent<Rigidbody>();
 		animator = GetComponent<Animator>();
+		baseStats = GetComponent<BaseStats>();
 	}
 
 
-	protected void TriggerAttack()
+    protected void TriggerAttack()
 	{
 		animator.ResetTrigger("StopAttack");
 		animator.SetTrigger("Attack");

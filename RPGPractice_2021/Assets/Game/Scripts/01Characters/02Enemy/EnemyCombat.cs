@@ -5,26 +5,35 @@ using UnityEngine;
 public class EnemyCombat : Combat
 {
     //[SerializeField] EnemyStats enemyStats;
-    BaseStats enemyStats;
+    //BaseStats enemyStats;
 
-    public Health player;
+    public Health target;
+    Vector3 targetPosition;
 
     float attackRange = 2.5f;
 
+
+
+
     private void Update()
     {
-        if (player.IsDead()) return;
+        timeSinceLastAttack += Time.deltaTime;
 
-        if (GetIsInRange(player.transform))
+        if (target == null) return;
+        if (target.IsDead()) return;
+
+        if (GetIsInRange(target.transform))
         {
-            animator.SetTrigger("Attack");
+            UpdateAnimator();
         }
     }
 
 
     public override void Hit()
     {
-        player.TakeDamage((int)enemyStats.GetStat(StatsType.Damage));
+        if (target == null) return;
+
+        target.TakeDamage((int)baseStats.GetStat(StatsType.Damage));
     }
 
     public override void WeaponEffect()
@@ -38,7 +47,15 @@ public class EnemyCombat : Combat
 
     protected override void UpdateAnimator()
     {
-        throw new System.NotImplementedException();
+        targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+        transform.LookAt(targetPosition);
+
+        if (timeSinceLastAttack > timeBetweenAttacks)
+        {
+            TriggerAttack();
+
+            timeSinceLastAttack = 0;
+        }
     }
 
     public override bool GetIsInRange(Transform targetTransform)

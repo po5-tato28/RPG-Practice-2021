@@ -37,12 +37,14 @@ public class BaseStats : MonoBehaviour
 
     public int GetStat(StatsType stat)
     {
+        //Debug.Log(characterStats.GetStats(stat, characterType, GetCurrentLevel()));
         //return (GetBaseStat(list) + GetAdditiveModifier(list)) * (1 + GetPercentageModifier(list) / 100);
         return characterStats.GetStats(stat, characterType, GetCurrentLevel());
     }
 
     private int GetBaseStat(StatsType stat)
     {
+       
         return characterStats.GetStats(stat, characterType, GetCurrentLevel());
     }
 
@@ -78,6 +80,7 @@ public class BaseStats : MonoBehaviour
         // exp가 비어있으면 -> 시작레벨(startingLevel) 반환후 종료
         if (exp == null)
         {
+            Debug.Log(startingLevel);
             return startingLevel;
         }
     

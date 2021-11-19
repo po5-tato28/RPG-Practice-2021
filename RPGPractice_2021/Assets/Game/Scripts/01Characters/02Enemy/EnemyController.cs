@@ -43,9 +43,9 @@ public class EnemyController : MonoBehaviour
     {
         if (health.IsDead()) return;        
 
-        targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
-
-        transform.LookAt(targetPosition);
+        //targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+        //
+        //transform.LookAt(targetPosition);
     }
 
     /// test methodµé
