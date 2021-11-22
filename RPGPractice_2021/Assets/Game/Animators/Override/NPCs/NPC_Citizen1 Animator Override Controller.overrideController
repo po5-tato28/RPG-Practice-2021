@@ -6,8 +6,6 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Citizen2 Animator Override Controller
+  m_Name: NPC_Citizen1 Animator Override Controller
   m_Controller: {fileID: 9100000, guid: a037ccc58955f8147ba27ce35493c594, type: 2}
-  m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 8911a52aeee70a74c8bcddbf94a0ad05, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 85338c223be55024da82bc6cbaaa1a22, type: 2}
+  m_Clips: []

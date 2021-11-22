@@ -9,6 +9,7 @@ TagManager:
   - Center of Player
   - Managers
   - Inventory
+  - NPC
   layers:
   - Default
   - TransparentFX
