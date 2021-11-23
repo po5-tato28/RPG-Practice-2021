@@ -6,8 +6,17 @@ public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] Dialogue[] dialogue;
 
-    public void TriggerDialogue()
+
+    private void Update()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue[0]);
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            TriggerDialogue((int)DialogueType.FirstTime);
+        }
+    }
+
+    public void TriggerDialogue(int dialogueType)
+    {
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue[dialogueType]);
     }
 }

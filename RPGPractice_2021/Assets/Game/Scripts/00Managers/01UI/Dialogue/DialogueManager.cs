@@ -13,24 +13,26 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> senteces;
 
+
+
     private void Start()
     {
         senteces = new Queue<string>();
     }
 
-    internal void StartDialogue(Dialogue dialogue)
+    internal void StartDialogue(Dialogue dialogue, DialogueType dialogueType = DialogueType.FirstTime, int logueNum = 0)
     {
         animator.SetBool("IsOpen", true);
 
-        //nameText.text = dialogue.characterName;
+        nameText.text = dialogue.GetNames(dialogueType, logueNum);
 
         // Queue √ ±‚»≠
         senteces.Clear();
 
-        //foreach (string sentence in dialogue.sentences)
-        //{
-        //    senteces.Enqueue(sentence);
-        //}
+        foreach (string sentence in dialogue.GetDialogues(dialogueType, logueNum))
+        {
+            senteces.Enqueue(sentence);
+        }
 
         DisplayNextSentence();
     }
