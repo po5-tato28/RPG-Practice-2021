@@ -7106,7 +7106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a374c7390db1e449daa56ab7ef6eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: e3c887eae6a5c334eac1d10244d7a845, type: 2}
+  dialogue:
+  - {fileID: 11400000, guid: e3c887eae6a5c334eac1d10244d7a845, type: 2}
+  - {fileID: 11400000, guid: e11464bb302580a48b8f15db9889e852, type: 2}
+  - {fileID: 11400000, guid: 3c100d3e9f05b0e42a5b45783ba42d9e, type: 2}
 --- !u!114 &1001154007
 MonoBehaviour:
   m_ObjectHideFlags: 0

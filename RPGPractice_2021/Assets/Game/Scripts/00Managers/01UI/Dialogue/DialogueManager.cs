@@ -22,15 +22,15 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", true);
 
-        nameText.text = dialogue.characterName;
+        //nameText.text = dialogue.characterName;
 
         // Queue √ ±‚»≠
         senteces.Clear();
 
-        foreach (string sentence in dialogue.sentences)
-        {
-            senteces.Enqueue(sentence);
-        }
+        //foreach (string sentence in dialogue.sentences)
+        //{
+        //    senteces.Enqueue(sentence);
+        //}
 
         DisplayNextSentence();
     }
