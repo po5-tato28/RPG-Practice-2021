@@ -50,7 +50,7 @@ MonoBehaviour:
         \uC54A\uC544."
   - dialogueType: 3
     dialogueList:
-    - characterName: "\uC774\uB984\uC5C6\uB294 \uAE30\uC0AC?"
+    - characterName: "\uAE30\uC0AC?"
       sentences:
       - "\uB10C \uB204\uAD6C\uC57C?"
       - ...
@@ -85,4 +85,4 @@ MonoBehaviour:
     dialogueList:
     - characterName: "\uC218\uB828\uAE30\uC0AC"
       sentences:
-      - "\uACE0\uB9C8\uC6CC!!"
+      - "\uC774\uC81C\uBD80\uD130 \uB2E4\uC2DC \uC5F4\uC2EC\uD788 \uC218\uB828\uD560\uAC70\uB77C\uAD6C!"

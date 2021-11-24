@@ -9832,7 +9832,7 @@ MonoBehaviour:
   itemNumber: 10100
   itemdata: {fileID: 11400000, guid: 5822467fcbfd8f54198f446c92bcfc12, type: 2}
   point: 0
-  itemImage: {fileID: 0}
+  itemImage: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
 --- !u!65 &1769743972164081122
 BoxCollider:
   m_ObjectHideFlags: 0

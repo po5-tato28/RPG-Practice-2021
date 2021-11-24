@@ -14,7 +14,7 @@ public class ItemDrop : MonoBehaviour
         // -1이 나오면 빠져나간다 = 아이템이 드롭되지 않음
         if (value < 0) return; 
 
-        Vector3 itemPos = transform.localPosition + new Vector3(0f, transform.localPosition.y + 1.0f, 0f);
+        Vector3 itemPos = transform.position + new Vector3(0f, 1.0f, 0f);
 
         Instantiate(items[value], itemPos, Quaternion.Euler(-90, 0, 0));
     }
