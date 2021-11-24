@@ -9,6 +9,7 @@ public enum DialogueType
     Citizen2,
     SecondTime,
     Knights,
+    ThirdTime,
 }
 
 [CreateAssetMenu(menuName = "Dialogue")]
