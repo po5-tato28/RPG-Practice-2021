@@ -86,15 +86,15 @@ public class Dialogue : ScriptableObject
         var nameLookupTable = new List<string>();
 
         // foreach 반복문을 사용해 type 클래스를 순회한다
-        foreach (DialogueTypeClass dialogue in dialogueClasses)
+        foreach (DialogueTypeClass dialogueTypes in dialogueClasses)
         {            
             // type에 맞는 stat 클래스를 순회한다 (type 클래스가 stat 클래스를 포함한다)
-            foreach (DialogueListClass dialogueValue in dialogue.dialogueList)
+            foreach (DialogueListClass dialogueValue in dialogueTypes.dialogueList)
             {
                 nameLookupTable.Add(dialogueValue.characterName);
             }
 
-            nameTable[dialogue.dialogueType] = nameLookupTable;
+            nameTable[dialogueTypes.dialogueType] = nameLookupTable;
         }
     }
 
@@ -108,15 +108,15 @@ public class Dialogue : ScriptableObject
         var logueLookupTable = new List<string[]>();
 
         // foreach 반복문을 사용해 type 클래스를 순회한다
-        foreach (DialogueTypeClass dialogue in dialogueClasses)
+        foreach (DialogueTypeClass dialogueTypes in dialogueClasses)
         {
             // type에 맞는 stat 클래스를 순회한다 (type 클래스가 stat 클래스를 포함한다)
-            foreach (DialogueListClass dialogueValue in dialogue.dialogueList)
+            foreach (DialogueListClass dialogueValue in dialogueTypes.dialogueList)
             {
                 logueLookupTable.Add(dialogueValue.sentences);
             }
 
-            dialogueTable[dialogue.dialogueType] = logueLookupTable;
+            dialogueTable[dialogueTypes.dialogueType] = logueLookupTable;
         }
     }
 

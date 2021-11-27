@@ -1,18 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NPCsController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool isPossibleToTalk= false;
+    public bool IsPossibleToTalk { get{ return IsPossibleToTalk;} }
 
-    // Update is called once per frame
-    void Update()
+    public DialogueType dialogueType;
+
+    // ¿Ã∫•∆Æ
+    public UnityEvent readyToTriggerDialogue;
+    public UnityEvent exitToTriggerDialogue;
+
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.CompareTag("Player"))
+        {
+            readyToTriggerDialogue.Invoke();
+            isPossibleToTalk = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            exitToTriggerDialogue.Invoke();
+            isPossibleToTalk = false;
+        }
     }
 }

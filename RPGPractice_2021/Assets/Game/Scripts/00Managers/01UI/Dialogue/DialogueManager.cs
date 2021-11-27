@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -20,7 +21,7 @@ public class DialogueManager : MonoBehaviour
         senteces = new Queue<string>();
     }
 
-    internal void StartDialogue(Dialogue dialogue, DialogueType dialogueType = DialogueType.FirstTime, int logueNum = 0)
+    internal void StartDialogue(Dialogue dialogue, DialogueType dialogueType, int logueNum = 0)
     {
         animator.SetBool("IsOpen", true);
 
