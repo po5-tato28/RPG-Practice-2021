@@ -82,6 +82,7 @@ public class Health : MonoBehaviour
         int recoverHp = GetComponent<BaseStats>().GetStat(StatsType.Hp);
 
         currentHp = Mathf.Max(currentHp, recoverHp);
+        if (currentHp > 100) currentHp = 100;
     }
 
     public void RecoverHealth(int point = 0)

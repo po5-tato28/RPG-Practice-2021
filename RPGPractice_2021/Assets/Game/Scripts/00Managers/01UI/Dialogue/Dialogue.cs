@@ -2,15 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum DialogueType
-{
-    FirstTime,
-    Citizen1,
-    Citizen2,
-    SecondTime,
-    Knights,
-    ThirdTime,
-}
 
 [CreateAssetMenu(menuName = "Dialogue")]
 public class Dialogue : ScriptableObject
@@ -20,7 +11,8 @@ public class Dialogue : ScriptableObject
     [System.Serializable]
     public class DialogueTypeClass
     {
-        public DialogueType dialogueType;
+        public int dialogueOrder;
+        //public DialogueType dialogueType;
         public DialogueListClass[] dialogueList = null;
     }
 
@@ -33,90 +25,87 @@ public class Dialogue : ScriptableObject
         public string[] sentences;
     }
 
-    // dictionary로 저장 < 로그 타입, < 이름, 문장[] > >
+    // dictionary로 저장 < 로그 넘버, < 이름, 문장[] > >
     // Dictionary < TKey,TValue >
-    [SerializeField] Dictionary<DialogueType, List<string>> nameTable = null;
-    [SerializeField] Dictionary<DialogueType, List<string[]>> dialogueTable = null;
+    [SerializeField] Dictionary<int, List<string>> name = null;
+    [SerializeField] Dictionary<int, List<string[]>> sentences = null;
 
+    public string GetNames(int order, int startNum)
+    {
+        // 컨테이너를 초기화하는 메서드 호출
+        SetupNameTable();
+
+        // 전달받은 매개변수의 값을 임시변수 charName 배열에 저장
+        string charName = name[order][startNum];
+
+        if (charName == null)
+        {
+            return "null";
+        }
+
+        return charName;
+    }
 
     // logue Num = 현재 타입의 몇번째 로그를 재생할건가?
-    public string[] GetDialogues(DialogueType logueType, int logueNum)
+    public string[] GetDialogues(int order, int startNum)
     {
         // 컨테이너를 초기화하는 메서드 호출
         SetupLogueTable();
 
         // 전달받은 매개변수의 값을 임시변수 logues 배열에 저장
-        string[] logues = dialogueTable[logueType][logueNum];
+        string[] logues = sentences[order][startNum];
 
         if(logues == null)
         {
             return null;
         }
 
-        // levels에서 [lv-1] 인덱스의 값을 반환
+
         return logues;
     }
-
-    public string GetNames(DialogueType logueType, int logueNum)
-    {
-        // 컨테이너를 초기화하는 메서드 호출
-        SetupNameTable();
-
-        // 전달받은 매개변수의 값을 임시변수 logues 배열에 저장
-        string charName = nameTable[logueType][logueNum];
-
-        if (charName.Length < logueNum)
-        {
-            return "null";
-        }
-
-        // levels에서 [lv-1] 인덱스의 값을 반환
-        return charName;
-    }
-
 
 
     void SetupNameTable()
     {
         // 이미 설정되어있으면 바로 빠져나간다
-        if (nameTable != null) return;
+        if (name != null) return;
 
-        nameTable = new Dictionary<DialogueType, List<string>>();
+        name = new Dictionary<int, List<string>>();
 
         var nameLookupTable = new List<string>();
 
         // foreach 반복문을 사용해 type 클래스를 순회한다
-        foreach (DialogueTypeClass dialogueTypes in dialogueClasses)
+        foreach (DialogueTypeClass dialouge in dialogueClasses)
         {            
             // type에 맞는 stat 클래스를 순회한다 (type 클래스가 stat 클래스를 포함한다)
-            foreach (DialogueListClass dialogueValue in dialogueTypes.dialogueList)
+            foreach (DialogueListClass dialogueValue in dialouge.dialogueList)
             {
                 nameLookupTable.Add(dialogueValue.characterName);
             }
 
-            nameTable[dialogueTypes.dialogueType] = nameLookupTable;
+            name[dialouge.dialogueOrder] = nameLookupTable;
         }
     }
 
     void SetupLogueTable()
     {
         // 이미 설정되어있으면 바로 빠져나간다
-        if (dialogueTable != null) return;
+        if (sentences != null) return;
 
-        dialogueTable = new Dictionary<DialogueType, List<string[]>>();
+        sentences = new Dictionary<int, List<string[]>>();
 
         var logueLookupTable = new List<string[]>();
 
         // foreach 반복문을 사용해 type 클래스를 순회한다
-        foreach (DialogueTypeClass dialogueTypes in dialogueClasses)
+        foreach (DialogueTypeClass dialogue in dialogueClasses)
         {
             // type에 맞는 stat 클래스를 순회한다 (type 클래스가 stat 클래스를 포함한다)
-            foreach (DialogueListClass dialogueValue in dialogueTypes.dialogueList)
+            foreach (DialogueListClass dialogueValue in dialogue.dialogueList)
             {
                 logueLookupTable.Add(dialogueValue.sentences);
             }
 
-            dialogueTable[dialogueTypes.dialogueType] = logueLookupTable;
+            sentences[dialogue.dialogueOrder] = logueLookupTable;
         }
     }
 

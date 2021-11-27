@@ -1387,6 +1387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73a60a7e29b04e45a892df945647c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueOrder: 10020
   readyToTriggerDialogue:
     m_PersistentCalls:
       m_Calls:

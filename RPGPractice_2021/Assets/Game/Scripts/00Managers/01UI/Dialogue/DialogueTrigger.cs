@@ -5,9 +5,9 @@ using UnityEngine.Events;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [SerializeField] Dialogue[] dialogue;
+    [SerializeField] Dialogue dialogue;
 
-    [SerializeField] NPCsController npcsController;
+    [SerializeField] NPCsController npc;
 
     public UnityEvent TryDialogue;
     public UnityEvent FinishDialogue;
@@ -15,7 +15,8 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update ()
     {
-        KeyInput();
+        if(npc.GetIsPossibleToTalk())
+            KeyInput();
     }
 
 
@@ -30,6 +31,6 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue[1], npcsController.dialogueType);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, npc.dialogueOrder);
     }
 }

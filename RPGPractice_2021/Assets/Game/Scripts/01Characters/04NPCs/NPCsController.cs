@@ -5,10 +5,9 @@ using UnityEngine.Events;
 
 public class NPCsController : MonoBehaviour
 {
-    private bool isPossibleToTalk= false;
-    public bool IsPossibleToTalk { get{ return IsPossibleToTalk;} }
+    [SerializeField] private bool isPossibleToTalk = false;
 
-    public DialogueType dialogueType;
+    public int dialogueOrder;
 
     // ¿Ã∫•∆Æ
     public UnityEvent readyToTriggerDialogue;
@@ -30,5 +29,10 @@ public class NPCsController : MonoBehaviour
             exitToTriggerDialogue.Invoke();
             isPossibleToTalk = false;
         }
+    }
+
+    public bool GetIsPossibleToTalk()
+    {
+        return isPossibleToTalk;
     }
 }

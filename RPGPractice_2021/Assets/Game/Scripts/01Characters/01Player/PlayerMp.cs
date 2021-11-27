@@ -54,5 +54,6 @@ public class PlayerMp : MonoBehaviour
         int recoverMp = currentMp + point;
 
         currentMp = Mathf.Max(currentMp, recoverMp);
+        if (currentMp > 100) currentMp = 100;
     }
 }
