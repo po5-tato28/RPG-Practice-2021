@@ -68,7 +68,7 @@ MonoBehaviour:
     dialogueList:
     - characterName: "\uC218\uB828\uAE30\uC0AC"
       sentences:
-      - "\uB098 \uC815\uB9D0 \uBC14\uBCF4\uAC19\uC9C0?"
+      - "\uB098 \uC815\uB9D0 \uBC14\uBCF4\uAC19\uC9C0?\r"
       - "\uC774\uB798\uC11C\uB294 \uC815\uC2DD \uAE30\uC0AC\uAC00 \uB420 \uC218 \uC5C6\uC744\uAC70\uC57C..."
   - dialogueOrder: 30000
     dialogueList:

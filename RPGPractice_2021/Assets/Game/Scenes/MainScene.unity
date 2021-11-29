@@ -7116,7 +7116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a374c7390db1e449daa56ab7ef6eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: e3c887eae6a5c334eac1d10244d7a845, type: 2}
+  dialogue: {fileID: 1363513526}
   npc: {fileID: 999578980}
   TryDialogue:
     m_PersistentCalls:
@@ -9909,6 +9909,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containers:
   - {fileID: 11400000, guid: 3f4628c3df383384fbe24183517de657, type: 2}
+  - {fileID: 11400000, guid: e5896db074dd5e142ad36b299d05d3ce, type: 2}
+  - {fileID: 11400000, guid: 7241d15dc9050ae469426e6e9f6e1e25, type: 2}
+  - {fileID: 11400000, guid: 160b77b3378dad94f8fa570787f4ca02, type: 2}
+  - {fileID: 11400000, guid: 5638f9bd9f4156544a2e91f2c32b6001, type: 2}
+  - {fileID: 11400000, guid: ce80a4591cde8b74fa36e4c62afaff2c, type: 2}
+  - {fileID: 11400000, guid: ba2b6ec1bbe397d4b9c32f7f9e01d5d4, type: 2}
 --- !u!1 &1372998280
 GameObject:
   m_ObjectHideFlags: 0

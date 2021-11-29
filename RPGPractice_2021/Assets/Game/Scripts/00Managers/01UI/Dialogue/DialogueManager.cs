@@ -21,16 +21,16 @@ public class DialogueManager : MonoBehaviour
         senteces = new Queue<string>();
     }
 
-    internal void StartDialogue(Dialogue dialogue, int order, int startNum = 0)
+    internal void StartDialogue(DialogueContainer dialogue, int order, int startNum = 0)
     {
         animator.SetBool("IsOpen", true);
 
-        nameText.text = dialogue.GetNames(order, startNum);
+        nameText.text = dialogue.characterName;
 
         // Queue √ ±‚»≠
         senteces.Clear();
 
-        foreach (string sentence in dialogue.GetDialogues(order, startNum))
+        foreach (string sentence in dialogue.sentences)
         {
             senteces.Enqueue(sentence);
         }
