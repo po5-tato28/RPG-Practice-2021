@@ -1287,7 +1287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPossibleToTalk: 0
   dialogueType: 10000
-  npcCamera: {fileID: 0}
+  npcCamera: {fileID: 4767452983249077881}
   readyToTriggerDialogue:
     m_PersistentCalls:
       m_Calls:

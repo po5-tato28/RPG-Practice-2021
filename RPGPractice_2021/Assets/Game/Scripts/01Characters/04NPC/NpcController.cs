@@ -62,4 +62,22 @@ public class NpcController : MonoBehaviour
             npcCamera.gameObject.SetActive(false);
         }
     }
+
+    public void ChangeDialogueType()
+    {
+        switch(dialogueType)
+        {
+            case DialogueType.First:
+                dialogueType = DialogueType.Citizen1_1;
+                break;
+            case DialogueType.Second:
+                dialogueType = DialogueType.Knight1_1;
+                break;
+            case DialogueType.Third:
+                dialogueType = DialogueType.Knight1_2;
+                break;
+            default:
+                break;
+        }
+    }
 }
