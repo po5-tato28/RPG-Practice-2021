@@ -27,7 +27,7 @@ public class Dialogue : ScriptableObject
 
     // dictionary로 저장 < 로그 넘버, < 이름, 문장[] > >
     // Dictionary < TKey,TValue >
-    [SerializeField] Dictionary<int, List<string>> name = null;
+    [SerializeField] Dictionary<int, List<string>> charName = null;
     [SerializeField] Dictionary<int, List<string[]>> sentences = null;
 
     public string GetNames(int order, int startNum)
@@ -36,7 +36,7 @@ public class Dialogue : ScriptableObject
         SetupNameTable();
 
         // 전달받은 매개변수의 값을 임시변수 charName 배열에 저장
-        string charName = name[order][startNum];
+        string charName = this.charName[order][startNum];
 
         if (charName == null)
         {
@@ -68,9 +68,9 @@ public class Dialogue : ScriptableObject
     void SetupNameTable()
     {
         // 이미 설정되어있으면 바로 빠져나간다
-        if (name != null) return;
+        if (charName != null) return;
 
-        name = new Dictionary<int, List<string>>();
+        charName = new Dictionary<int, List<string>>();
 
         var nameLookupTable = new List<string>();
 
@@ -83,7 +83,7 @@ public class Dialogue : ScriptableObject
                 nameLookupTable.Add(dialogueValue.characterName);
             }
 
-            name[dialouge.dialogueOrder] = nameLookupTable;
+            charName[dialouge.dialogueOrder] = nameLookupTable;
         }
     }
 

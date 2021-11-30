@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
 
     private Queue<string> senteces;
-
+    [SerializeField] DialogueTrigger trigger;
 
 
     private void Start()
@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
         senteces = new Queue<string>();
     }
 
-    internal void StartDialogue(DialogueContainer dialogue, int order, int startNum = 0)
+    internal void StartDialogue(DialogueContainer dialogue, int startNum = 0)
     {
         animator.SetBool("IsOpen", true);
 
@@ -64,7 +64,12 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
-        //Debug.Log("End of conversation.");
+        // npc 카메라 끄기
+        trigger.GetCurrentNPC().DisableNpcCamera();
+
+        // npc 애니메이션
+        trigger.GetCurrentNPC().GetComponent<Animator>().SetBool("Talking", false);
+
         animator.SetBool("IsOpen", false);
     }
 }

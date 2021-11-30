@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class NPCsController : MonoBehaviour
+public class NpcController : MonoBehaviour
 {
     [SerializeField] private bool isPossibleToTalk = false;
+    [SerializeField] DialogueType dialogueType;
 
-    public int dialogueOrder;
+    [SerializeField] Camera npcCamera;
+
+    //public int dialogueOrder;
 
     // 이벤트
     public UnityEvent readyToTriggerDialogue;
@@ -34,5 +37,29 @@ public class NPCsController : MonoBehaviour
     public bool GetIsPossibleToTalk()
     {
         return isPossibleToTalk;
+    }
+
+
+    public DialogueType GetNpcDialogueType()
+    {
+        return dialogueType;
+    }
+
+    // 카메라 켜기
+    public void EnableNpcCamera()
+    {
+        if(!npcCamera.gameObject.activeSelf)
+        {
+            npcCamera.gameObject.SetActive(true);
+        }
+    }
+    
+    // 카메라 끄기
+    public void DisableNpcCamera()
+    {
+        if (npcCamera.gameObject.activeSelf)
+        {
+            npcCamera.gameObject.SetActive(false);
+        }
     }
 }
