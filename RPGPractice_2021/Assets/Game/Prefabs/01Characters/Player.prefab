@@ -550,6 +550,7 @@ GameObject:
   - component: {fileID: 115575214670765893}
   - component: {fileID: 8322864201861628790}
   - component: {fileID: 349900721}
+  - component: {fileID: 883112798441433737}
   - component: {fileID: 3808901219975383086}
   m_Layer: 3
   m_Name: Player
@@ -735,6 +736,24 @@ MonoBehaviour:
   startingLevel: 1
   characterType: 0
   characterStats: {fileID: 11400000, guid: befb960ce5048d04aa8e5753250ce03e, type: 2}
+--- !u!114 &883112798441433737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347843475052522153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fef9fee44b5b0a45b1dac129e395916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest:
+    isActive: 0
+    title: 
+    description: 
+    experienceReward: 0
+    itemReward: 
 --- !u!114 &3808901219975383086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,8 +766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fcfc7255d72f848ba29791e9bc745a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  slots: []
 --- !u!1 &2347844305440079603
 GameObject:
   m_ObjectHideFlags: 0

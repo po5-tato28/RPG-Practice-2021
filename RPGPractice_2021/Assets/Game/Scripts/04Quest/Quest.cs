@@ -10,5 +10,5 @@ public class Quest
     public string title;
     public string description;
     public int experienceReward;
-    public GameObject itemReward;
+    public string itemReward;
 }
