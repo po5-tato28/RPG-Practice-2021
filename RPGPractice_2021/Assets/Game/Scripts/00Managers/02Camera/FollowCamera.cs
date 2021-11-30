@@ -27,4 +27,16 @@ public class FollowCamera : MonoBehaviour
         transform.LookAt(target);
     }
 
+    public void SettingCamera()
+    {
+        if(gameObject.activeSelf)
+        {
+            gameObject.SetActive(false);
+        }
+        else if(!gameObject.activeSelf)
+        {
+            gameObject.SetActive(true);
+        }
+    }
+
 }

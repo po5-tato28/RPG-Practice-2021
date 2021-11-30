@@ -15,6 +15,8 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> senteces;
     [SerializeField] DialogueTrigger trigger;
 
+    [SerializeField] GameObject[] ui;
+
 
     private void Start()
     {
@@ -23,6 +25,10 @@ public class DialogueManager : MonoBehaviour
 
     internal void StartDialogue(DialogueContainer dialogue, int startNum = 0)
     {
+        // 다른 ui 가리기
+        SettingOtherUI();
+         
+        // 대화 ui 켜기
         animator.SetBool("IsOpen", true);
 
         nameText.text = dialogue.characterName;
@@ -70,9 +76,28 @@ public class DialogueManager : MonoBehaviour
         // npc의 dialogue 변경
         trigger.GetCurrentNPC().ChangeDialogueType();
 
-        // npc 애니메이션
+        // npc 애니메이션 조정
         trigger.GetCurrentNPC().GetComponent<Animator>().SetBool("Talking", false);
 
+        // ui 보이기
+        SettingOtherUI();
+
         animator.SetBool("IsOpen", false);
+    }
+
+    private void SettingOtherUI()
+    {
+        for(int i = 0; i < ui.Length; i++)
+        {
+            if (ui[i].GetComponent<CanvasGroup>().alpha <= 0)
+            {
+                ui[i].GetComponent<CanvasGroup>().alpha = 1f;
+            }
+
+            else if (ui[i].GetComponent<CanvasGroup>().alpha > 0) 
+            {
+                ui[i].GetComponent<CanvasGroup>().alpha = 0f;
+            }                
+        }
     }
 }
