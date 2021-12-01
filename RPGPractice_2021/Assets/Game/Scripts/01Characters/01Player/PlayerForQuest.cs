@@ -15,4 +15,19 @@ public class PlayerForQuest : MonoBehaviour
         exp = GetComponent<PlayerExp>();
     }
 
+
+    public void GoBattle()
+    {
+        if (quest.isActive)
+        {
+            quest.goal.EnemyKilled();
+            if(quest.goal.IsReached())
+            {
+                // º¸»ó
+                // exp.value += quest.experienceReward;
+                // item.value += quest.itemReward;
+                quest.Complete();
+            }
+        }
+    }
 }
