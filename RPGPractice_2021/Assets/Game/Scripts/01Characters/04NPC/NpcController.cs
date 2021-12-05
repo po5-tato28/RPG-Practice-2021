@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class NpcController : MonoBehaviour
 {
     [SerializeField] private bool isPossibleToTalk = false;
-    [SerializeField] DialogueType dialogueType;
+    public DialogueType dialogueType;
 
     [SerializeField] Camera npcCamera;
 
@@ -79,5 +79,19 @@ public class NpcController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void AcceptQuestFromNpc()
+    {
+        switch (dialogueType)
+        {
+            case DialogueType.Second:
+                {
+                    GetComponent<QuestGiver>().OpenQuestWindow();
+                }
+                break;
+            default:
+                break;
+        }        
     }
 }

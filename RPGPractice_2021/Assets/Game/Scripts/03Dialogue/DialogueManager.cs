@@ -73,8 +73,8 @@ public class DialogueManager : MonoBehaviour
         // npc 카메라 끄기
         trigger.GetCurrentNPC().DisableNpcCamera();
 
-        // npc의 dialogue 변경
-        trigger.GetCurrentNPC().ChangeDialogueType();
+        // 퀘스트 받기
+        trigger.GetCurrentNPC().AcceptQuestFromNpc();
 
         // npc 애니메이션 조정
         trigger.GetCurrentNPC().GetComponent<Animator>().SetBool("Talking", false);
@@ -83,6 +83,9 @@ public class DialogueManager : MonoBehaviour
         SettingOtherUI();
 
         animator.SetBool("IsOpen", false);
+
+        // npc의 dialogue 변경
+        trigger.GetCurrentNPC().ChangeDialogueType();
     }
 
     private void SettingOtherUI()
