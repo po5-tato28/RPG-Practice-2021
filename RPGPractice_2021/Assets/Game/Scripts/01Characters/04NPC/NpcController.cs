@@ -88,6 +88,7 @@ public class NpcController : MonoBehaviour
             case DialogueType.Second:
                 {
                     GetComponent<QuestGiver>().OpenQuestWindow();
+                    GetComponent<QuestGiver>().AcceptQuest();
                 }
                 break;
             default:

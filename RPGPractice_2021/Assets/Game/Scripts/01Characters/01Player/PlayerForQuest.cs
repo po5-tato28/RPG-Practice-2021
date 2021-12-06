@@ -15,6 +15,11 @@ public class PlayerForQuest : MonoBehaviour
         exp = GetComponent<PlayerExp>();
     }
 
+    private void Update()
+    {
+        
+    }
+
 
     public void GoBattle()
     {

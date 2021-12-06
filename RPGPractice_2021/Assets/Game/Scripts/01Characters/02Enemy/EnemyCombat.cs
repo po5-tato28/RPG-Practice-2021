@@ -13,7 +13,10 @@ public class EnemyCombat : Combat
     float attackRange = 2.5f;
 
 
-
+    private void OnEnable()
+    {
+        target = GameObject.FindWithTag("Player").GetComponent<Health>();
+    }
 
     private void Update()
     {
@@ -47,8 +50,8 @@ public class EnemyCombat : Combat
 
     protected override void UpdateAnimator()
     {
-        targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
-        transform.LookAt(targetPosition);
+        //targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+        //transform.LookAt(targetPosition);
 
         if (timeSinceLastAttack > timeBetweenAttacks)
         {

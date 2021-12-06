@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {
     // public UnityEvent onEnemyDead;
 
-    GameObject player;
+    //GameObject target;
     Health health;
+    NavMeshAgent agent;
+    EnemyCombat combat;
 
     Vector3 targetPosition;
 
@@ -29,31 +32,17 @@ public class EnemyController : MonoBehaviour
     {
         health = GetComponent<Health>();
         animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        combat = GetComponent<EnemyCombat>();
 
         enemyStats = GetComponent<BaseStats>();
 
         itemDrop = GetComponent<ItemDrop>();
     }
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
-    
-    void Update()
-    {
-        if (health.IsDead()) return;        
 
-        //targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
-        //
-        //transform.LookAt(targetPosition);
-    }
-
-    /// test method들
-    /// 이후에 꼭 옮겨줄 것!!
-    public void MoveBack()
+    private void OnEnable()
     {
-        //
-        //
+        GetComponent<BoxCollider>().enabled = true;
     }
 
     public void Attacked()
@@ -73,8 +62,15 @@ public class EnemyController : MonoBehaviour
 
     public void OnEnemyDead()
     {
-        // exp
-        player.GetComponent<PlayerExp>().GainExp(enemyStats.GetStat(StatsType.ExpReward));
+        agent.isStopped = true;
+        agent.velocity = Vector3.zero;
+        GetComponent<BoxCollider>().enabled = false;
+
+        // exp 받고
+        combat.target.GetComponent<PlayerExp>().GainExp(enemyStats.GetStat(StatsType.ExpReward));
+        // 타겟을 비운다
+        combat.target = null;
+        
 
         // dead effect
         GameObject dead = Instantiate(deadEffect, new Vector3(0, 0.7f, 0), Quaternion.identity);

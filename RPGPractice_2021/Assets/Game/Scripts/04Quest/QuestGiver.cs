@@ -27,7 +27,7 @@ public class QuestGiver : MonoBehaviour
 
     public void AcceptQuest()
     {
-        questWindow.SetActive(false);
+        //questWindow.SetActive(false);
         quest.isActive = true;
         // give to player;
         player.quest = this.quest;
