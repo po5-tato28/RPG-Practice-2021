@@ -77,7 +77,7 @@ public class EnemyMover : MonoBehaviour
         { 
             agent.destination = nextPosition;
             agent.speed = patrolSpeed;
-            animator.SetFloat("Move", agent.speed);
+            animator.SetFloat("Move", patrolSpeed);
         }       
     }
 

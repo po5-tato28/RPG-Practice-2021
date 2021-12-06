@@ -14,8 +14,8 @@ public class QuestGoal
 {
     public GoalType goalType;
 
-    public int requiredAmount;
-    public int currentAmount;
+    public int requiredAmount = 10;
+    public int currentAmount = 0;
 
 
     public bool IsReached()

@@ -29,6 +29,7 @@ public class QuestGiver : MonoBehaviour
     {
         //questWindow.SetActive(false);
         quest.isActive = true;
+
         // give to player;
         player.quest = this.quest;
     }

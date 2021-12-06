@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,8 @@ public class EnemyController : MonoBehaviour
 
     ItemDrop itemDrop;
 
+    public Action OnEnemyDead;
+
 
     private void Awake()
     {
@@ -42,7 +45,12 @@ public class EnemyController : MonoBehaviour
 
     private void OnEnable()
     {
+        OnEnemyDead += PlayerForQuest.GetInstance().GoBattle;
         GetComponent<BoxCollider>().enabled = true;
+    }
+    private void OnDisable()
+    {
+        OnEnemyDead -= PlayerForQuest.GetInstance().GoBattle;
     }
 
     public void Attacked()
@@ -60,7 +68,7 @@ public class EnemyController : MonoBehaviour
         Destroy(attacked, 2f);
     }
 
-    public void OnEnemyDead()
+    public void OnDead()
     {
         agent.isStopped = true;
         agent.velocity = Vector3.zero;
@@ -79,6 +87,9 @@ public class EnemyController : MonoBehaviour
         itemDrop.Drop();
 
         Destroy(dead, 3f);
+
+        // 적 사망 이벤트 실행
+        OnEnemyDead.Invoke();
 
         // 비활성화
         Invoke("DisableEnemy", 2f);

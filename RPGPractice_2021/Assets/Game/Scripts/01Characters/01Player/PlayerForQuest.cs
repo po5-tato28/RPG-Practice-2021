@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerForQuest : MonoBehaviour
 {
+    public static PlayerForQuest instance;
+    public static PlayerForQuest GetInstance()
+    {
+        return instance;
+    }
+
     Health health;
     PlayerExp exp;
 
@@ -11,27 +17,27 @@ public class PlayerForQuest : MonoBehaviour
 
     private void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+
         health = GetComponent<Health>();
         exp = GetComponent<PlayerExp>();
     }
-
-    private void Update()
-    {
-        
-    }
-
 
     public void GoBattle()
     {
         if (quest.isActive)
         {
             quest.goal.EnemyKilled();
+
             if(quest.goal.IsReached())
             {
                 // º¸»ó
                 // exp.value += quest.experienceReward;
                 // item.value += quest.itemReward;
-                quest.Complete();
+                // quest.Complete();                
             }
         }
     }

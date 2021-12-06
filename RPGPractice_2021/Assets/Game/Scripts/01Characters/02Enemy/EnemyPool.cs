@@ -20,6 +20,8 @@ public class EnemyPool : MonoBehaviour
     [SerializeField] Transform createPosition;
     [SerializeField] Transform[] patrolPositions;
 
+    private Coroutine activeCoroutine;
+
 
     // 내가 생성할 적의 수
     private readonly int enemyMaxCount = 10;
@@ -53,35 +55,55 @@ public class EnemyPool : MonoBehaviour
     {
         ActiveEnemy();
     }
+    
+    private void ActiveEnemy()
+    {
+        if(activeCoroutine == null)
+        {
+            activeCoroutine = StartCoroutine(ActiveEnemyCoroutine());
+        }        
+    }
 
     // 적 활성화
-    void ActiveEnemy()
+    private IEnumerator ActiveEnemyCoroutine()
     {
-        // 마우스 좌클릭 할 때마다 총알 발사
-        if (Input.GetMouseButtonDown(0))
+        while(true)
         {
-            // 발사되어야할 순번의 총알이 이전에 발사한 후로 아직 날아가고 있는 중이라면, 발사를 못하게 한다.
+            // 생성되어야할 순번의 적이 생성되어 있으면 리턴
             if (enemies[currentEnemyIndex].gameObject.activeSelf)
             {
-                return;
+                // 마지막 인덱스의 적을 소환했다면 마지막 번호 -> 0으로 변화
+                if (currentEnemyIndex >= enemyMaxCount - 1)
+                {
+                    currentEnemyIndex = 0;
+                }
+                else
+                {
+                    // 아니면 그냥 인덱스 증가
+                    currentEnemyIndex++;
+                }
+
+                break;
             }
 
-            // 총알 초기 위치는 전투기랑 같게
-            // enemies[currentEnemyIndex].transform.position = this.transform.position;
-
-            // 총알 활성화 해주기
+            // 적 활성화
             enemies[currentEnemyIndex].gameObject.SetActive(true);
 
-            // 방금 9번째 총알을 발사했다면 다시 0번째 총알을 발사할 준비를 한다.
+            // 마지막 인덱스의 적을 소환했다면 마지막 번호 -> 0으로 변화
             if (currentEnemyIndex >= enemyMaxCount - 1)
             {
                 currentEnemyIndex = 0;
             }
             else
             {
+                // 아니면 그냥 인덱스 증가
                 currentEnemyIndex++;
             }
+
+            yield return new WaitForSecondsRealtime(11f);
         }
+
+        activeCoroutine = null;
     }
 
     public Transform GetCreatePosition()

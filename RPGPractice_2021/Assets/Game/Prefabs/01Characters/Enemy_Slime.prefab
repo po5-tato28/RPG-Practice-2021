@@ -476,6 +476,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackedEffect: {fileID: 1248725148069024, guid: 25464a23a439eef4b84cdfac9b1e33e2, type: 3}
   deadEffect: {fileID: 1689824516827380, guid: 0ca9c3417239f0948abd3829ba3c6fb5, type: 3}
+  OnEnemyDead:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 883112798441433737, guid: b2aa8032f0b71bb47bea422e6e7fc01c, type: 3}
+        m_TargetAssemblyTypeName: PlayerForQuest, Assembly-CSharp
+        m_MethodName: GoBattle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7814469727164242549
 MonoBehaviour:
   m_ObjectHideFlags: 0
