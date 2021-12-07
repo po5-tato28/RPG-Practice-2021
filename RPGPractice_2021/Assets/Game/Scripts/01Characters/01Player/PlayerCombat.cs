@@ -104,7 +104,9 @@ public class PlayerCombat : Combat
     }
     void DestroySkillEffect()
     {
-        //GetComponent<Animator>().SetTrigger("stopSkill");
+        animator.ResetTrigger("Skill");
+        animator.SetTrigger("StopSkill");
+
         Destroy(combatEffect);
         isSkill = false;
     }

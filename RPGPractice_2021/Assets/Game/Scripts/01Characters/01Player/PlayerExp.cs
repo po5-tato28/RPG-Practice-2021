@@ -4,7 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerExp : MonoBehaviour
-{    
+{
+    static PlayerExp instance;
+    public static PlayerExp GetInstance()
+    {
+        return instance;
+    }
+
     int currentExp; // current Exp
     public int CurrentExp
     {
@@ -13,6 +19,15 @@ public class PlayerExp : MonoBehaviour
     }
 
     public event Action onTakeExp;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+
 
     void OnEnable()
     {

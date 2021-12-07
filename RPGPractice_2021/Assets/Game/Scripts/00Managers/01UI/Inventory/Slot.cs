@@ -9,17 +9,19 @@ public class Slot : MonoBehaviour
     int itemCount;
 
     [SerializeField] Item getItem; // »πµÊ«— æ∆¿Ã≈€
-    public Item GetItem { get { return getItem; } }
+    //public Item GetItem { get { return getItem; } }
 
     [SerializeField] Image slotImage;    
     [SerializeField] Text countText;
 
-    
+    InventoryUI inventoryUi;
+
 
     private void Awake()
     {
         slotImage = transform.GetChild(0).GetComponent<Image>();
         countText = transform.GetChild(1).GetComponent<Text>();
+        inventoryUi = FindObjectOfType<InventoryUI>();
     }
 
     public void AddItem(Item item)
@@ -36,12 +38,49 @@ public class Slot : MonoBehaviour
     public void SetSlotCount(int count)
     {
         itemCount += count;
-        countText.text = itemCount.ToString();
+        //countText.text = itemCount.ToString();
 
-        if (countText.gameObject.activeSelf == false)
-            countText.gameObject.SetActive(true);
+        //if (countText.gameObject.activeSelf == false)
+        //    countText.gameObject.SetActive(true);
 
         //if (itemCount <= 0)
         //ClearSlot();
+    }
+    // ≈◊Ω∫∆Æ
+
+
+    // relay Point
+    public void UseItem(int slotNum)
+    {
+        switch (getItem.ItemType)
+        {
+            case ItemType.Hp:
+                {
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().RecoverHealth(getItem.Point);
+                    Remove(slotNum);
+                }
+                break;
+            case ItemType.Mp:
+                {
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMp>().RecoverMp(getItem.Point);
+                    Remove(slotNum);
+                }
+                break;
+            case ItemType.Exp:
+                {
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerExp>().GainExp(getItem.Point);
+                    Remove(slotNum);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void Remove(int slotNum)
+    {
+        inventoryUi.itemCount.RemoveAt(slotNum);
+        getItem = null;
+        slotImage.gameObject.SetActive(false);
     }
 }

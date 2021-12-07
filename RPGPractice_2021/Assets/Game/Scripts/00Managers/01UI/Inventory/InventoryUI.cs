@@ -10,13 +10,12 @@ public class InventoryUI : MonoBehaviour
     bool isActive = false;
 
     [SerializeField] List<Slot> slots;
-    [SerializeField] List<Item> itemCount;
+    public List<Item> itemCount;
     [SerializeField] Transform slotHolder;
-
-    [SerializeField] ItemDatabase items;
 
 
     Inventory inven;
+
 
     private void Awake()
     {
@@ -89,11 +88,13 @@ public class InventoryUI : MonoBehaviour
 
     public void GetItem(Item item, int count = 1)
     {
+
         // itemCount.Count = 0개 -> 인벤토리 0번
-        slots[itemCount.Count].SetSlotCount(count);
+        //slots[itemCount.Count].SetSlotCount(count);
         slots[itemCount.Count].AddItem(item);
 
         itemCount.Add(item);
     }
+
 }
 

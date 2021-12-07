@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+
 
 public class Health : MonoBehaviour
 {
@@ -17,8 +20,8 @@ public class Health : MonoBehaviour
 
     private void OnEnable()
     {
-        // maxHp = GetInitialHealth();
-        currentHp = GetInitialHealth();
+        maxHp = GetInitialHealth();
+        currentHp = maxHp;
 
         isDead = false;
 
@@ -79,10 +82,10 @@ public class Health : MonoBehaviour
     {
         if (currentHp >= GetInitialHealth()) return;
 
-        int recoverHp = GetComponent<BaseStats>().GetStat(StatsType.Hp);
+        maxHp = GetComponent<BaseStats>().GetStat(StatsType.Hp);
+        //int recoverHp = GetComponent<BaseStats>().GetStat(StatsType.Hp);
 
-        currentHp = Mathf.Max(currentHp, recoverHp);
-        if (currentHp > 100) currentHp = 100;
+        currentHp = Mathf.Max(currentHp, maxHp);
     }
 
     public void RecoverHealth(int point = 0)
@@ -92,6 +95,7 @@ public class Health : MonoBehaviour
         int recoverHp = currentHp + point;
 
         currentHp = Mathf.Max(currentHp, recoverHp);
+        if (recoverHp > maxHp) currentHp = maxHp;
     }
 
 

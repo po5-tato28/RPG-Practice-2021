@@ -100,7 +100,7 @@ public class EnemyPool : MonoBehaviour
                 currentEnemyIndex++;
             }
 
-            yield return new WaitForSecondsRealtime(11f);
+            yield return new WaitForSecondsRealtime(3f);
         }
 
         activeCoroutine = null;

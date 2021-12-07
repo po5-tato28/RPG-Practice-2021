@@ -12,6 +12,8 @@ public class NpcController : MonoBehaviour
 
     //public int dialogueOrder;
 
+    [SerializeField] GameObject questWindow;
+
     // ¿Ã∫•∆Æ
     public UnityEvent readyToTriggerDialogue;
     public UnityEvent exitToTriggerDialogue;
@@ -78,6 +80,10 @@ public class NpcController : MonoBehaviour
                     if(PlayerForQuest.instance.quest.isComplete)
                     {
                         dialogueType = DialogueType.Third;
+
+                        PlayerExp.GetInstance().GainExp((int)PlayerForQuest.instance.quest.experienceReward);
+
+                        questWindow.SetActive(false);
                     }
                     break;
                 }

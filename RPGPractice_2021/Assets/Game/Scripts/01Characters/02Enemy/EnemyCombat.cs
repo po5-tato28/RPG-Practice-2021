@@ -15,7 +15,7 @@ public class EnemyCombat : Combat
 
     private void OnEnable()
     {
-        target = GameObject.FindWithTag("Player").GetComponent<Health>();
+        //target = GameObject.FindWithTag("Player").GetComponent<Health>();
     }
 
     private void Update()

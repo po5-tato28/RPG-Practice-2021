@@ -42,9 +42,10 @@ public class PlayerMp : MonoBehaviour
     {
         if (currentMp >= GetInitialMp()) return;
 
-        int recoverMp = GetComponent<BaseStats>().GetStat(StatsType.Mp);
+        maxMp = GetComponent<BaseStats>().GetStat(StatsType.Hp);
+        //int recoverMp = GetComponent<BaseStats>().GetStat(StatsType.Mp);
 
-        currentMp = Mathf.Max(currentMp, recoverMp);
+        currentMp = Mathf.Max(currentMp, maxMp);
     }
 
     public void RecoverMp(int point = 0)
@@ -54,6 +55,6 @@ public class PlayerMp : MonoBehaviour
         int recoverMp = currentMp + point;
 
         currentMp = Mathf.Max(currentMp, recoverMp);
-        if (currentMp > 100) currentMp = 100;
+        if (recoverMp > maxMp) currentMp = maxMp;
     }
 }

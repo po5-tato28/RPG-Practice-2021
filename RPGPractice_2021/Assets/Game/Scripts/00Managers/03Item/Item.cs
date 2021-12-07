@@ -22,6 +22,8 @@ public class Item : MonoBehaviour
     [SerializeField] ItemDatabase itemdata;
 
     [SerializeField] int point;
+    public int Point { get { return point; } }
+
 
     [SerializeField] Sprite itemImage;
     public Sprite ItemImage { get { return itemImage; } }
@@ -44,33 +46,33 @@ public class Item : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            RelayPoint();
-            Destroy(this.gameObject);
+            RelayItem();
+            this.gameObject.SetActive(false);
         }
     }    
 
     // Relay = 전달하다
-    void RelayPoint()
+    public void RelayItem()
     {
         switch(itemType)
         {
             case ItemType.Hp:
                 {
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().RecoverHealth(point);
+                    //GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().RecoverHealth(point);
                     
                     inventory.GetItem(this);
                 }
                 break;
             case ItemType.Mp:
                 {
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMp>().RecoverMp(point);
+                    //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMp>().RecoverMp(point);
 
                     inventory.GetItem(this);
                 }
                 break;
             case ItemType.Exp:
                 {
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerExp>().GainExp(point);
+                    //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerExp>().GainExp(point);
 
                     inventory.GetItem(this);
                 }

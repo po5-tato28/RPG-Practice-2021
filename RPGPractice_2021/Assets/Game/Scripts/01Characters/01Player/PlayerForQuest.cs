@@ -14,6 +14,8 @@ public class PlayerForQuest : MonoBehaviour
     PlayerExp exp;
 
     public Quest quest;
+    [SerializeField] GameObject questWindow;
+
 
     private void Awake()
     {
@@ -37,7 +39,7 @@ public class PlayerForQuest : MonoBehaviour
                 // º¸»ó
                 // exp.value += quest.experienceReward;
                 // item.value += quest.itemReward;
-                quest.Complete();                                
+                quest.Complete();
             }
         }
     }
