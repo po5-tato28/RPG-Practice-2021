@@ -73,6 +73,14 @@ public class NpcController : MonoBehaviour
             case DialogueType.Second:
                 dialogueType = DialogueType.Knight1_1;
                 break;
+            case DialogueType.Knight1_1:
+                {
+                    if(PlayerForQuest.instance.quest.isComplete)
+                    {
+                        dialogueType = DialogueType.Third;
+                    }
+                    break;
+                }
             case DialogueType.Third:
                 dialogueType = DialogueType.Knight1_2;
                 break;

@@ -37,7 +37,7 @@ public class PlayerForQuest : MonoBehaviour
                 // º¸»ó
                 // exp.value += quest.experienceReward;
                 // item.value += quest.itemReward;
-                // quest.Complete();                
+                quest.Complete();                                
             }
         }
     }
